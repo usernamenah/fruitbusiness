@@ -1,0 +1,19 @@
+.logindabba{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform: scale(2);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out ;
+}
+.logindabba:hover{
+    
+    transform: scale(3);
+    cursor: pointer;
+}
+
+.logintext{
+    color: green;
+    
+}
