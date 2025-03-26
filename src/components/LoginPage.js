@@ -22,12 +22,30 @@ const LoginPage = () => {
     };
 
     return (
-        <div className="logintext">
-            <h2>Login with Google</h2>
-            <GoogleLogin
-                onSuccess={handleLoginSuccess}
-                onError={() => console.log("Login Failed")}
-            />
+
+        <div>
+            <div className="borderoflogin">
+                <center>
+
+                    <div className="containerfulid">
+                        <div className="box">
+
+
+                            <div className="logintext">
+                                <center>
+
+                                    <h2>Login with Google</h2>
+                                    <GoogleLogin className="logindabba"
+                                        onSuccess={handleLoginSuccess}
+                                        onError={() => console.log("Login Failed")}
+                                    />
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                </center>
+            </div>
+
         </div>
     );
 };
