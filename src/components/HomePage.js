@@ -1,6 +1,7 @@
 import { React } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from "react-router-dom";
+// import fruitsmainimage from "."
 import './HomePage.css'
 
 
@@ -15,6 +16,7 @@ const Home = () => {
 
     return (
         <>
+        {/* <img src={ fruitsmainimage} alt="ffruitsimage"></img> */}
             <div className="containerfluid">
                 <div className="row">
                     <div className="col-4">
