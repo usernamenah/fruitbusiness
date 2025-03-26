@@ -25,6 +25,10 @@ const Home = () => {
 
                     <div className="col-12">
                         <header className="display-2">
+                            <br></br>
+                            <br></br>
+                            <br></br>
+                            <br></br>
                             <b>
                                 <div className="imagetext">
                                     BLOOMING BOWL
@@ -34,6 +38,32 @@ const Home = () => {
 
                 </div>
             </div>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+
+            <div className="intro">
+                <p className="intropara">
+                Welcome to <i><b>BLOOMING BOWL!</b> </i>  🍎🍊🥤
+                </p>
+                <p className="intropara">
+                 We bring you the freshest fruits, delicious juices, and beautifully curated fruit boxes. 
+                </p>
+                <p className="intropara">
+                Our mission is to deliver natural goodness, packed with nutrition and flavor, straight to your doorstep. Explore our selection and enjoy the taste of freshness!
+                </p>
+
+                <p className="intropara"><i>
+                Explore our selection and enjoy the taste of freshness!</i>
+                </p>
+            </div>
+
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+
 
             <div className="containerfluid">
                 <div className="row">
@@ -41,9 +71,12 @@ const Home = () => {
 
                     </div>
                     <div className="col-3">
-                        <div className="containerfluid">
-                            <div className="row">
-                                <img src={fruitsmainimage1} alt="ffruitsimage" className="image1"></img>
+                        <div className="upaniforimg">
+                            <div className="containerfluid">
+                                <div className="row">
+
+                                    <img src={fruitsmainimage1} alt="ffruitsimage" className="image1"></img>
+                                </div>
                             </div>
                             <p className="downlabel">FRUIT BOWL</p>
 
@@ -51,9 +84,11 @@ const Home = () => {
 
                     </div>
                     <div className="col-3">
-                        <div className="containerfluid">
-                            <div className="row">
-                                <img src={fruitsmainimage} alt="ffruitsimage" className="image2"></img>
+                        <div className="upaniforimg">
+                            <div className="containerfluid">
+                                <div className="row">
+                                    <img src={fruitsmainimage} alt="ffruitsimage" className="image2"></img>
+                                </div>
                             </div>
                             <p className="downlabel">FRUITS</p>
 
@@ -61,9 +96,12 @@ const Home = () => {
 
                     </div>
                     <div className="col-3">
-                        <div className="containerfluid">
-                            <div className="row">
-                                <img src={fruitsmainimage2} alt="ffruitsimage" className="image3"></img>
+                        <div className="upaniforimg">
+                            <div className="containerfluid">
+                                <div className="row">
+
+                                    <img src={fruitsmainimage2} alt="ffruitsimage" className="image3"></img>
+                                </div>
                             </div>
                             <p className="downlabel">COLD PRESSED JUICES</p>
 
