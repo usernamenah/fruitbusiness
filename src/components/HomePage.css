@@ -7,11 +7,107 @@
 }
 
 
-.image1{
-    margin-top: 50px;
-    height: 300px;
-    width: 200px;
+
+
+
+
+.downlabel{
+    align-self: center;
+    align-items: center;
+    align-content: center;
 }
+
+
+
+
+
+
+
+
+
+
+.image1, .image2{
+    margin-top: 50px;
+    width: min(90%, 200px); /* Shrinks up to 90% of the container, max 200px */
+    height: auto; /* Keeps aspect ratio */
+    max-height: 300px; /* Ensures it doesn't exceed this height */
+    display: block; /* Avoid inline spacing issues */
+}
+.image1 {
+    margin-top: 120px;
+    width: min(90%, 200px); /* Shrinks up to 90% of the container, max 200px */
+    height: auto; /* Keeps aspect ratio */
+    max-height: 300px; /* Ensures it doesn't exceed this height */
+    display: block; /* Avoid inline spacing issues */
+}
+.image3 {
+    margin-top: 180px;
+    width: min(90%, 200px); /* Shrinks up to 90% of the container, max 200px */
+    height: auto; /* Keeps aspect ratio */
+    max-height: 300px; /* Ensures it doesn't exceed this height */
+    display: block; /* Avoid inline spacing issues */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .image1, .image2, .image3 {
+        width: min(80%, 180px);
+        max-height: 250px;
+    }
+    .downlabel{
+        font-size: x-small;
+    }
+}
+
+@media (max-width: 768px) {
+    .image1, .image2, .image3 {
+        width: min(70%, 150px);
+        max-height: 200px;
+    }
+}
+
+@media (max-width: 600px) {
+    .image1, .image2, .image3 {
+        width: min(65%, 130px);
+        max-height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .image1, .image2, .image3 {
+        width: min(60%, 120px);
+        max-height: 160px;
+    }
+}
+
+@media (max-width: 400px) {
+    .image1, .image2, .image3 {
+        width: min(55%, 110px);
+        max-height: 140px;
+    }
+}
+
+@media (max-width: 360px) {
+    .image1, .image2, .image3 {
+        width: min(50%, 100px);
+        max-height: 130px;
+    }
+}
+
+@media (max-width: 320px) {
+    .image1, .image2, .image3 {
+        width: min(45%, 90px);
+        max-height: 120px;
+    }
+}
+
+@media (max-width: 280px) {
+    .image1, .image2, .image3 {
+        width: min(40%, 80px);
+        max-height: 100px;
+    }
+}
+
 
 @media (max-width: 1400px) {
     .imagetext {

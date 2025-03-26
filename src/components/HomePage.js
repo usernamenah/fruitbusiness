@@ -2,6 +2,8 @@ import { React } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from "react-router-dom";
 import fruitsmainimage from "./images/allfruitsforweb.jpg";
+import fruitsmainimage1 from "./images/image2.jpg";
+import fruitsmainimage2 from "./images/image3.jpg";
 // import widesmainimage from "./images/slicesshort.jpg";
 import './HomePage.css'
 
@@ -39,16 +41,33 @@ const Home = () => {
 
                     </div>
                     <div className="col-3">
-                        <img src={fruitsmainimage} alt="ffruitsimage" className="image1"></img>
+                        <div className="containerfluid">
+                            <div className="row">
+                                <img src={fruitsmainimage1} alt="ffruitsimage" className="image1"></img>
+                            </div>
+                            <p className="downlabel">FRUIT BOWL</p>
+
+                        </div>
 
                     </div>
                     <div className="col-3">
+                        <div className="containerfluid">
+                            <div className="row">
+                                <img src={fruitsmainimage} alt="ffruitsimage" className="image2"></img>
+                            </div>
+                            <p className="downlabel">FRUITS</p>
 
-                        <img src={fruitsmainimage} alt="ffruitsimage" className="image1"></img>
+                        </div>
 
                     </div>
                     <div className="col-3">
-                        <img src={fruitsmainimage} alt="ffruitsimage" className="image1"></img>
+                        <div className="containerfluid">
+                            <div className="row">
+                                <img src={fruitsmainimage2} alt="ffruitsimage" className="image3"></img>
+                            </div>
+                            <p className="downlabel">COLD PRESSED JUICES</p>
+
+                        </div>
 
                     </div>
 
@@ -70,7 +89,7 @@ const Home = () => {
                 <path d="M5.071 1.243a.5.5 0 0 1 .858.514L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 6h1.717zM3.5 10.5a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0z" />
             </svg>
 
-            
+
             <div className="">
                 this is home page
             </div>
