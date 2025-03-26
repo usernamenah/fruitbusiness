@@ -1,7 +1,49 @@
 .imagetext{
-    font-size: medium;
-    background-image: none;
+    font-size: 170px;
+    background-image: url('./images/slicesshort.jpg');
     background-size: contain;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    /* -webkit-background-clip: text; */
+    -webkit-text-fill-color: white;
+}
+
+
+.image1{
+    margin-top: 50px;
+    height: 300px;
+    width: 200px;
+}
+
+@media (max-width: 1400px) {
+    .imagetext {
+        font-size: 2.5rem;
+    }
+   
+}
+@media (max-width: 1400px) {
+    .imagetext {
+        font-size: 120px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .imagetext {
+        font-size: 90px;
+    }
+}
+
+@media (max-width: 768px) {
+    .imagetext {
+        font-size: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .imagetext {
+        font-size: 40px;
+    }
+}
+@media (max-width: 360px) {
+    .imagetext {
+        font-size: 25px;
+    }
 }
