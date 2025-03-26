@@ -12,6 +12,16 @@ function App() {
     <Router>
       <Routes>
         <Route path="/login" element={<LoginPage />} />
+        
+          {/* Redirect to home if already logged in 
+          
+          this is for loged in things and need more things to add  
+          
+          */}
+        {/* <Route 
+          path="/login" 
+          element={isAuthenticated() ? <Navigate to="/home" /> : <LoginPage />} 
+        /> */}
 
         {/* Protect Home Page */}
         <Route

@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import jwt_decode from 'jwt-decode';
+// import jwt_decode from 'jwt-decode';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

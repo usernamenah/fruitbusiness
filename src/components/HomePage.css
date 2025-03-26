@@ -1,5 +1,7 @@
-.logoutbutton{
-    position: fixed top;
-    right: 10px;
-    top: 10px;
+.imagetext{
+    font-size: medium;
+    background-image: none;
+    background-size: contain;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
