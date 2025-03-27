@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import fruitsmainimage from "./images/allfruitsforweb.jpg";
 import fruitsmainimage1 from "./images/image2.jpg";
 import fruitsmainimage2 from "./images/image3.jpg";
+import Cookies from "js-cookie"; 
 // import widesmainimage from "./images/slicesshort.jpg";
 import './HomePage.css'
 

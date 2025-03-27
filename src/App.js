@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import LoginPage from "./components/LoginPage.js";
 import HomePage from "./components/HomePage.js";
-
+import Cookies from "js-cookie"; 
 // Function to check if the user is authenticated
 const isAuthenticated = () => {
   return Cookies.get("authToken") !== undefined; 
