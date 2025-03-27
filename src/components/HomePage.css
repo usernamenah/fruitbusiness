@@ -138,78 +138,82 @@
     padding-right: 10%;
 }
 
-
-
-.image1, .image2,.image3{
-    user-select: none; /* Prevents text selection */
-  pointer-events: none; /* Disables any interaction */
-    margin-top: 50px;
-    width: min(90%, 200px); /* Shrinks up to 90% of the container, max 200px */
-    height: auto; /* Keeps aspect ratio */
-    max-height: 300px; /* Ensures it doesn't exceed this height */
-    display: block; /* Avoid inline spacing issues */
+/* Default styles */
+.image1, .image2, .image3 {
+    user-select: none; /* Prevents selection */
+    pointer-events: none; /* Disables interaction */
+    margin-top: 30px;
+    width: 90%; /* Makes images large on mobile */
+    max-width: 250px; /* Controls maximum width */
+    height: auto; /* Maintains aspect ratio */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
+/* Label styles */
+.downlabel {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 8px;
+}
 
-/* Responsive Adjustments */
+/* 📱 Responsive adjustments */
 @media (max-width: 1024px) {
     .image1, .image2, .image3 {
-        width: min(80%, 180px);
-        max-height: 250px;
+        max-width: 220px;
     }
-    .downlabel{
-        font-size: x-small;
+    .downlabel {
+        font-size: 16px;
     }
 }
 
 @media (max-width: 768px) {
     .image1, .image2, .image3 {
-        width: min(70%, 150px);
-        max-height: 200px;
+        max-width: 180px;
+    }
+    .downlabel {
+        font-size: 14px;
     }
 }
 
 @media (max-width: 600px) {
     .image1, .image2, .image3 {
-        width: min(65%, 130px);
-        max-height: 180px;
+        max-width: 160px;
+    }
+    .downlabel {
+        font-size: 13px;
     }
 }
 
 @media (max-width: 480px) {
     .image1, .image2, .image3 {
-        width: min(60%, 120px);
-        max-height: 160px;
+        max-width: 140px;
     }
-}
-
-@media (max-width: 400px) {
-    .image1, .image2, .image3 {
-        width: min(55%, 110px);
-        max-height: 140px;
+    .downlabel {
+        font-size: 12px;
     }
 }
 
 @media (max-width: 360px) {
     .image1, .image2, .image3 {
-        width: min(50%, 100px);
-        max-height: 130px;
+        max-width: 120px;
     }
-}
-
-@media (max-width: 320px) {
-    .image1, .image2, .image3 {
-        width: min(45%, 90px);
-        max-height: 120px;
+    .downlabel {
+        font-size: 11px;
     }
 }
 
 @media (max-width: 280px) {
     .image1, .image2, .image3 {
-        width: min(40%, 80px);
-        max-height: 100px;
+        max-width: 100px;
+    }
+    .downlabel {
+        font-size: 10px;
     }
 }
+
 
 
 @media (max-width: 1400px) {
