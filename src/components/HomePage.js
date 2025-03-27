@@ -25,8 +25,7 @@ const Home = () => {
 
                     <div className="col-12">
                         <header className="display-2">
-                            <br></br>
-                            <br></br>
+                           
                             <br></br>
                             <br></br>
                             <b>
@@ -38,8 +37,6 @@ const Home = () => {
 
                 </div>
             </div>
-            <br></br>
-            <br></br>
             <br></br>
             <br></br>
 

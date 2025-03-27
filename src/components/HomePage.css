@@ -5,6 +5,10 @@
     /* -webkit-background-clip: text; */
     -webkit-text-fill-color: white;
 }
+.imagetext::selection {
+    background: yellow;
+    color: orange;
+  }
 
 
 
@@ -14,9 +18,19 @@
     cursor:auto;
 }
 .intro:hover{
-    background-color: rgb(255, 202, 202);
+    cursor: pointer;
+    background-color: rgb(253, 241, 227);
     transform: scale(1.05);
 
+}
+.intro::selection {
+    background: orange;
+    color: white; 
+  }
+@media (max-width<1000px){
+    .intro{
+        font-size: 30px;
+    }
 }
 
 
