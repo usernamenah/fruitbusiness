@@ -25,7 +25,6 @@ const LoginPage = () => {
                     onSuccess={handleLoginSuccess}
                     onError={() => console.log("Login Failed")}
                 />
-                
             </div>
         </div>
     );
