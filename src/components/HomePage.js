@@ -12,8 +12,8 @@ const Home = () => {
     const navigate = useNavigate();
 
     const handleLogout = () => {
-        localStorage.removeItem("token");
-        navigate("/login");
+        Cookies.remove("authToken"); 
+        navigate("/login"); 
     };
 
 

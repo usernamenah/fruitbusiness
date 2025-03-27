@@ -4,7 +4,7 @@ import HomePage from "./components/HomePage.js";
 
 // Function to check if the user is authenticated
 const isAuthenticated = () => {
-  return localStorage.getItem('token') !== null;
+  return Cookies.get("authToken") !== undefined; 
 };
 
 function App() {
