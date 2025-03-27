@@ -2,11 +2,10 @@ import React from "react";
 import "./LoginPage.css";
 import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
-import { useNavigate } from "react-router-dom";
-import Cookies from "js-cookie"; // Import cookie library
+import Cookies from "js-cookie";
 
 const LoginPage = () => {
-    const navigate = useNavigate();
+    
 
     const handleLoginSuccess = (credentialResponse) => {
         const decodedToken = jwtDecode(credentialResponse.credential);
@@ -14,12 +13,12 @@ const LoginPage = () => {
 
         // Store token in a cookie (Expires in 1 hour)
         Cookies.set("authToken", credentialResponse.credential, {
-            expires: 0.5, // 1 day expiry
-            secure: true, // Ensure it's only sent over HTTPS
+            expires: 0.5, // 12 hours expiry
+            secure: false, // Change to true when using HTTPS
             sameSite: "Strict", // Protect against CSRF attacks
         });
 
-        navigate("/home");
+        window.location.href = "/home";
     };
 
     return (
@@ -40,8 +39,6 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
-
-
 
 
 

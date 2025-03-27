@@ -15,6 +15,7 @@ const Home = () => {
     const handleLogout = () => {
         Cookies.remove("authToken"); 
         navigate("/login"); 
+        window.location.href = "/login";
     };
 
 
