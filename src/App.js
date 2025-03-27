@@ -30,7 +30,7 @@ function App() {
         />
 
         {/* Redirect unknown routes to login */}
-        <Route path="*" element={<Navigate to="/login" />} />
+        {/* <Route path="*" element={<Navigate to="/login" />} /> */}
       </Routes>
     </Router>
   );
