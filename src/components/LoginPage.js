@@ -1,8 +1,9 @@
 import React from "react";
 import "./LoginPage.css";
-import { GoogleLogin } from '@react-oauth/google';
+import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie"; // Import cookie library
 
 const LoginPage = () => {
     const navigate = useNavigate();
@@ -11,16 +12,24 @@ const LoginPage = () => {
         const decodedToken = jwtDecode(credentialResponse.credential);
         console.log("User Info:", decodedToken);
 
-        localStorage.setItem("token", credentialResponse.credential);
+        // Store token in a cookie (Expires in 1 hour)
+        Cookies.set("authToken", credentialResponse.credential, {
+            expires: 0.5, // 1 day expiry
+            secure: true, // Ensure it's only sent over HTTPS
+            sameSite: "Strict", // Protect against CSRF attacks
+        });
+
         navigate("/home");
     };
 
     return (
         <div className="login-container">
             <div className="login-box">
-                <h1 className="login-title">Welcome to <span className="brand-name">Blooming Bowl</span></h1>
+                <h1 className="login-title">
+                    Welcome to <span className="brand-name">Blooming Bowl</span>
+                </h1>
                 <p className="login-subtitle">Sign in to continue your healthy journey</p>
-                <GoogleLogin 
+                <GoogleLogin
                     className="login-button"
                     onSuccess={handleLoginSuccess}
                     onError={() => console.log("Login Failed")}
@@ -31,6 +40,48 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
+
+
+
+
+
+
+
+
+
+// import React from "react";
+// import "./LoginPage.css";
+// import { GoogleLogin } from '@react-oauth/google';
+// import { jwtDecode } from "jwt-decode";
+// import { useNavigate } from "react-router-dom";
+
+// const LoginPage = () => {
+//     const navigate = useNavigate();
+
+//     const handleLoginSuccess = (credentialResponse) => {
+//         const decodedToken = jwtDecode(credentialResponse.credential);
+//         console.log("User Info:", decodedToken);
+
+//         localStorage.setItem("token", credentialResponse.credential);
+//         navigate("/home");
+//     };
+
+//     return (
+//         <div className="login-container">
+//             <div className="login-box">
+//                 <h1 className="login-title">Welcome to <span className="brand-name">Blooming Bowl</span></h1>
+//                 <p className="login-subtitle">Sign in to continue your healthy journey</p>
+//                 <GoogleLogin 
+//                     className="login-button"
+//                     onSuccess={handleLoginSuccess}
+//                     onError={() => console.log("Login Failed")}
+//                 />
+//             </div>
+//         </div>
+//     );
+// };
+
+// export default LoginPage;
 
 // import React from "react";
 // import "./LoginPage.css";

@@ -10,8 +10,6 @@ const isAuthenticated = () => {
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/login" element={<LoginPage />} />
         
           {/* Redirect to home if already logged in 
           
@@ -22,6 +20,8 @@ function App() {
           path="/login" 
           element={isAuthenticated() ? <Navigate to="/home" /> : <LoginPage />} 
         /> */}
+      <Routes>
+        <Route path="/login" element={<LoginPage />} />
 
         {/* Protect Home Page */}
         <Route
