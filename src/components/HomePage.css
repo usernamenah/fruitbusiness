@@ -4,11 +4,32 @@
     background-size: contain;
     /* -webkit-background-clip: text; */
     -webkit-text-fill-color: white;
+    animation: animate 25s linear infinite;
+    text-shadow: 
+        0 0 5px orange, 
+        0 0 10px yellow, 
+        0 0 15px orange, 
+        0 0 20px yellow, 
+        0 0 25px orange;
 }
 .imagetext::selection {
     background: yellow;
     color: orange;
+    text-shadow: 
+        0 0 5px orange, 
+        0 0 10px yellow, 
+        0 0 15px orange, 
+        0 0 20px yellow, 
+        0 0 25px orange;
+
   }
+@keyframes animate {
+    to{
+        background-position-x: -1000px;
+    }
+
+
+}
 
   .intro {
     transform: scale(1);
@@ -148,9 +169,16 @@
     height: auto; /* Maintains aspect ratio */
     display: block;
     margin-left: auto;
+   
     margin-right: auto;
+    animation: float 3s ease-in-out infinite; 
 }
+@keyframes float {
+    0% { transform: translateY(0px); }     
+    50% { transform: translateY(-10px); }      
+    100% { transform: translateY(0px); } 
 
+}
 /* Label styles */
 .downlabel {
     text-align: center;
