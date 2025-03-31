@@ -1,26 +1,31 @@
 import React from "react";
 import "./LoginPage.css";
 import { GoogleLogin } from "@react-oauth/google";
-import { jwtDecode } from "jwt-decode";
-import Cookies from "js-cookie";
+// import { jwtDecode } from "jwt-decode";
+// import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
-const LoginPage = () => {
+const LoginPage = ({ setIsAuth }) => {
+    const navigate = useNavigate();
+
+    const handleLoginSuccess = async (credentialResponse) => {
+        try {
+          const response = await fetch("http://localhost:5000/api/google-login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            credentials: "include",
+            body: JSON.stringify({ token: credentialResponse.credential }),
+          });
     
-
-    const handleLoginSuccess = (credentialResponse) => {
-        const decodedToken = jwtDecode(credentialResponse.credential);
-        console.log("User Info:", decodedToken);
-
-        // Store token in a cookie (Expires in 1 hour)
-        Cookies.set("authToken", credentialResponse.credential, {
-            expires: 0.5, // 12 hours expiry
-            secure: false, // Change to true when using HTTPS
-            sameSite: "Strict", // Protect against CSRF attacks
-        });
-
-        window.location.href = "/home";
-    };
-
+          if (response.ok) {
+            setIsAuth(true);
+            navigate("/home");
+          }
+        } catch (error) {
+          console.error("Error during login:", error);
+        }
+      };
+    
     return (
         <div className="login-container">
             <div className="login-box">
@@ -32,7 +37,7 @@ const LoginPage = () => {
                     className="login-button"
                     onSuccess={handleLoginSuccess}
                     onError={() => console.log("Login Failed")}
-                />
+                    />
             </div>
         </div>
     );
@@ -53,9 +58,9 @@ export default LoginPage;
 // import { useNavigate } from "react-router-dom";
 
 // const LoginPage = () => {
-//     const navigate = useNavigate();
-
-//     const handleLoginSuccess = (credentialResponse) => {
+    //     const navigate = useNavigate();
+    
+    //     const handleLoginSuccess = (credentialResponse) => {
 //         const decodedToken = jwtDecode(credentialResponse.credential);
 //         console.log("User Info:", decodedToken);
 
@@ -64,80 +69,95 @@ export default LoginPage;
 //     };
 
 //     return (
-//         <div className="login-container">
-//             <div className="login-box">
-//                 <h1 className="login-title">Welcome to <span className="brand-name">Blooming Bowl</span></h1>
-//                 <p className="login-subtitle">Sign in to continue your healthy journey</p>
-//                 <GoogleLogin 
-//                     className="login-button"
-//                     onSuccess={handleLoginSuccess}
-//                     onError={() => console.log("Login Failed")}
-//                 />
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default LoginPage;
-
-// import React from "react";
+    //         <div className="login-container">
+    //             <div className="login-box">
+    //                 <h1 className="login-title">Welcome to <span className="brand-name">Blooming Bowl</span></h1>
+    //                 <p className="login-subtitle">Sign in to continue your healthy journey</p>
+    //                 <GoogleLogin 
+    //                     className="login-button"
+    //                     onSuccess={handleLoginSuccess}
+    //                     onError={() => console.log("Login Failed")}
+    //                 />
+    //             </div>
+    //         </div>
+    //     );
+    // };
+    
+    // export default LoginPage;
+    
+    // import React from "react";
 // import "./LoginPage.css";
 // import { GoogleLogin } from '@react-oauth/google';
 // import { jwtDecode } from "jwt-decode";
 // import { useNavigate } from "react-router-dom";
 
 // const LoginPage = () => {
-//     const navigate = useNavigate();
-
-//     const handleLoginSuccess = (credentialResponse) => {
-//         // Decode the Google token
-//         const decodedToken = jwtDecode(credentialResponse.credential);
-//         console.log("Decoded Token:", decodedToken);
-//         console.log("yeah confirmed");
-
-//         // Store token in localStorage
-//         localStorage.setItem("token", credentialResponse.credential);
-//         console.log(localStorage.getItem("token"));
-
-//         // Redirect to home page
-//         navigate("/home");
-//     };
-
-//     return (
-
-//         <div>
-//             <div className="borderoflogin">
-//                 <center>
-
-//                     <div className="containerfulid">
-//                         <div className="box">
-
-
-//                             <div className="logintext">
-//                                 <center>
-//                                     <div className="welcomegreet">
-//                                         HI .....!
-//                                     </div>
-//                                     <div className="welcometext">
-//                                       welcome to  BLOOMING BOWL
-//                                     </div>
-                                   
-
-
-//                                     <h2>Login with Google</h2>
-//                                     <GoogleLogin className="logindabba"
-//                                         onSuccess={handleLoginSuccess}
-//                                         onError={() => console.log("Login Failed")}
-//                                     />
-//                                 </center>
-//                             </div>
-//                         </div>
-//                     </div>
-//                 </center>
-//             </div>
-
+    //     const navigate = useNavigate();
+    
+    //     const handleLoginSuccess = (credentialResponse) => {
+        //         // Decode the Google token
+        //         const decodedToken = jwtDecode(credentialResponse.credential);
+        //         console.log("Decoded Token:", decodedToken);
+        //         console.log("yeah confirmed");
+        
+        //         // Store token in localStorage
+        //         localStorage.setItem("token", credentialResponse.credential);
+        //         console.log(localStorage.getItem("token"));
+        
+        //         // Redirect to home page
+        //         navigate("/home");
+        //     };
+        
+        //     return (
+            
+        //         <div>
+        //             <div className="borderoflogin">
+        //                 <center>
+        
+        //                     <div className="containerfulid">
+        //                         <div className="box">
+        
+        
+        //                             <div className="logintext">
+        //                                 <center>
+        //                                     <div className="welcomegreet">
+        //                                         HI .....!
+        //                                     </div>
+        //                                     <div className="welcometext">
+        //                                       welcome to  BLOOMING BOWL
+        //                                     </div>
+        
+        
+        
+        //                                     <h2>Login with Google</h2>
+        //                                     <GoogleLogin className="logindabba"
+        //                                         onSuccess={handleLoginSuccess}
+        //                                         onError={() => console.log("Login Failed")}
+        //                                     />
+        //                                 </center>
+        //                             </div>
+        //                         </div>
+        //                     </div>
+        //                 </center>
+        //             </div>
+        
 //         </div>
 //     );
 // };
 
 // export default LoginPage;
+
+
+    // const handleLoginSuccess = (credentialResponse) => {
+    //     const decodedToken = jwtDecode(credentialResponse.credential);
+    //     console.log("User Info:", decodedToken);
+
+    //     // Store token in a cookie (Expires in 1 hour)
+    //     Cookies.set("authToken", credentialResponse.credential, {
+    //         expires: 0.5, // 12 hours expiry
+    //         secure: false, // Change to true when using HTTPS
+    //         sameSite: "Strict", // Protect against CSRF attacks
+    //     });
+
+    //     window.location.href = "/home";
+    // };
