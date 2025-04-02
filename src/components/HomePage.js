@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import fruitsmainimage from "./images/allfruitsforweb.jpg";
 import fruitsmainimage1 from "./images/image2.jpg";
 import fruitsmainimage2 from "./images/image3.jpg";
-import Cookies from "js-cookie";
+// import Cookies from "js-cookie";
 // import widesmainimage from "./images/slicesshort.jpg";
 import './HomePage.css'
 
@@ -15,7 +15,7 @@ const Home = () => {
     const handleLogout = async () => {
         try {
             // Call backend logout endpoint
-            const response = await fetch("https://fruitbusinessbackend.vercel.app/logout", {
+            const response = await fetch("http://localhost:5000/logout", {
                 method: "POST",
                 credentials: "include" // Necessary for cookie clearing
             });

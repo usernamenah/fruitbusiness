@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import LoginPage from "./components/LoginPage.js";
 import HomePage from "./components/HomePage.js";
-import Cookies from "js-cookie";
+// import Cookies from "js-cookie";
 import { useState, useEffect } from "react";
 
 const App = () => {
@@ -10,7 +10,7 @@ const App = () => {
     useEffect(() => {
         const checkAuth = async () => {
             try {
-                const response = await fetch("https://fruitbusinessbackend.vercel.app/check-auth", {
+                const response = await fetch("http://localhost:5000/check-auth", {
                     credentials: 'include' // Include cookies
                 });
                 if (response.ok) {
