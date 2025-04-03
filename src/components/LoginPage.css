@@ -34,7 +34,8 @@ body, html {
     text-align: center;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: rgb(194, 132, 0) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+
 }
 
 .login-title {
@@ -64,11 +65,6 @@ body, html {
 .login-button:hover {
     transform: scale(1.1);
 }
-
-
-
-
-
 
 
 
