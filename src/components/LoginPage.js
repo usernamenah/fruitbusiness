@@ -9,22 +9,22 @@ const LoginPage = ({ setIsAuth }) => {
     const navigate = useNavigate();
 
     const handleLoginSuccess = async (credentialResponse) => {
-        try {
-          const response = await fetch("http://localhost:5000/api/google-login", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            credentials: "include",
-            body: JSON.stringify({ token: credentialResponse.credential }),
-          });
-          console.log(response )
-          if (response.ok) {
-            setIsAuth(true);
-            navigate("/home");
-          }
-        } catch (error) {
-          console.error("Error during login:", error);
+      try {
+        const response = await fetch("http://localhost:5000/api/google-login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          credentials: "include",
+          body: JSON.stringify({ token: credentialResponse.credential }),
+        });
+        console.log(response )
+        if (response.ok) {
+          setIsAuth(true);
+          navigate("/home");
         }
-      };
+      } catch (error) {
+        console.error("Error during login:", error);
+      }
+    };
     
     return (
         <div className="login-container">

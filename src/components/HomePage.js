@@ -1,4 +1,4 @@
-import { React } from "react";
+import { React, useState , useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from "react-router-dom";
 import fruitsmainimage from "./images/allfruitsforweb.jpg";
@@ -11,6 +11,16 @@ import './HomePage.css'
 
 const Home = () => {
     const navigate = useNavigate();
+    const [showDiv, setShowDiv] = useState(false);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            alert("incomingload");
+            handleboxappear();
+        }, 5000); // 5 seconds
+
+        return () => clearTimeout(timer); // Cleanup on unmount
+    }, []);
 
     const handleLogout = async () => {
         try {
@@ -30,6 +40,32 @@ const Home = () => {
         }
     };
 
+    const handleboxappear = async () => {
+        try {
+            const response = await fetch("http://localhost:5000/throughreq/chrephno", {
+                method: 'GET',
+                credentials: 'include' // Important to include cookies
+            });
+    
+            if (response.ok) {
+                const data = await response.json();
+    
+                if (data.authorized) {
+                    setShowDiv(false);
+                } else {
+                    alert("Not authorized");
+                    setShowDiv(true);
+                }
+            } else {
+                console.error("Server returned an error");
+                setShowDiv(false);
+            }
+        } catch (error) {
+            console.error("Error checking auth:", error);
+            setShowDiv(false);
+        }
+    };
+
 
     return (
         <>
@@ -45,9 +81,9 @@ const Home = () => {
                             <b>
                                 <div className="imagetext">
                                     <span className="blink">
-                                    BLOOMING </span> <span className="blink2"> BOWL</span>
+                                        BLOOMING </span> <span className="blink2"> BOWL</span>
 
-                                    
+
                                 </div></b> </header>
 
                     </div>
@@ -81,36 +117,45 @@ const Home = () => {
             </div>
             <div className="menuin">
 
-            <div className="container-fluid">
-                <div className="row justify-content-center">
-                    {/* Image 1 */}
-                    <div className="col-6 col-md-3 text-center">
-                        <div className="upaniforimg">
-                            <img src={fruitsmainimage1} alt="Fruit Bowl" className="image1" />
-                            <p className="downlabel">FRUIT BOWL</p>
+                <div className="container-fluid">
+                    <div className="row justify-content-center">
+                        {/* Image 1 */}
+                        <div className="col-6 col-md-3 text-center">
+                            <div className="upaniforimg">
+                                <img src={fruitsmainimage1} alt="Fruit Bowl" className="image1" />
+                                <p className="downlabel">FRUIT BOWL</p>
+                            </div>
                         </div>
-                    </div>
 
-                    {/* Image 2 */}
-                    <div className="col-6 col-md-3 text-center">
-                        <div className="upaniforimg">
-                            <img src={fruitsmainimage} alt="Fruits" className="image2" />
-                            <p className="downlabel">FRUITS & JUICES</p>
+                        {/* Image 2 */}
+                        <div className="col-6 col-md-3 text-center">
+                            <div className="upaniforimg">
+                                <img src={fruitsmainimage} alt="Fruits" className="image2" />
+                                <p className="downlabel">FRUITS & JUICES</p>
+                            </div>
                         </div>
-                    </div>
 
-                    {/* Image 3 */}
-                    <div className="col-6 col-md-3 text-center">
-                        <div className="upaniforimg">
-                            <img src={fruitsmainimage2} alt="Cold Pressed Juices" className="image3" />
-                            <p className="downlabel">COLD PRESSED JUICES</p>
+                        {/* Image 3 */}
+                        <div className="col-6 col-md-3 text-center">
+                            <div className="upaniforimg">
+                                <img src={fruitsmainimage2} alt="Cold Pressed Juices" className="image3" />
+                                <p className="downlabel">COLD PRESSED JUICES</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
             </div>
-            
+            <div>
+
+
+                {showDiv && (
+                    <div  className="phonecheck">
+                        🎉 This div appeared after 5 seconds!
+                    </div>
+                )}
+            </div>
+
 
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cup-straw" viewBox="0 0 16 16">
                 <path d="M13.902.334a.5.5 0 0 1-.28.65l-2.254.902-.4 1.927c.376.095.715.215.972.367.228.135.56.396.56.82q0 .069-.011.132l-.962 9.068a1.28 1.28 0 0 1-.524.93c-.488.34-1.494.87-3.01.87s-2.522-.53-3.01-.87a1.28 1.28 0 0 1-.524-.93L3.51 5.132A1 1 0 0 1 3.5 5c0-.424.332-.685.56-.82.262-.154.607-.276.99-.372C5.824 3.614 6.867 3.5 8 3.5c.712 0 1.389.045 1.985.127l.464-2.215a.5.5 0 0 1 .303-.356l2.5-1a.5.5 0 0 1 .65.278M9.768 4.607A14 14 0 0 0 8 4.5c-1.076 0-2.033.11-2.707.278A3.3 3.3 0 0 0 4.645 5c.146.073.362.15.648.222C5.967 5.39 6.924 5.5 8 5.5c.571 0 1.109-.03 1.588-.085zm.292 1.756C9.445 6.45 8.742 6.5 8 6.5c-1.133 0-2.176-.114-2.95-.308a6 6 0 0 1-.435-.127l.838 8.03c.013.121.06.186.102.215.357.249 1.168.69 2.438.69s2.081-.441 2.438-.69c.042-.029.09-.094.102-.215l.852-8.03a6 6 0 0 1-.435.127 9 9 0 0 1-.89.17zM4.467 4.884s.003.002.005.006zm7.066 0-.005.006zM11.354 5a3 3 0 0 0-.604-.21l-.099.445.055-.013c.286-.072.502-.149.648-.222" />

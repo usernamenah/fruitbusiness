@@ -351,3 +351,18 @@
         font-size: 25px;
     }
 }
+
+
+
+/* form here i am gonna make teh css furthur  */
+
+
+.phonecheck{
+    position: fixed;
+    top: 10rem;
+    right: 1rem;
+    width: 300px;
+    height: 150px;
+    background-color: aqua;
+    box-shadow: 0px 25px 80px rgba(0, 0, 0, 0.5);
+}
