@@ -30,12 +30,13 @@ const App = () => {
             <Routes>
                 <Route
                     path="/login"
-                    element={isAuth ? <Navigate to="/home" /> : <LoginPage setIsAuth={setIsAuth} />}
+                    element={isAuth ? <Navigate to="/home" /> : <LoginPage setIsAuth={setIsAuth } />}
                 />
                 <Route
                     path="/home"
                     element={isAuth ? <HomePage /> : <Navigate to="/login" />}
                 />
+                
                 <Route path="*" element={<Navigate to="/login" />} />
             </Routes>
         </Router>
