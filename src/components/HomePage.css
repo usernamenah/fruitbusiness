@@ -384,29 +384,35 @@
 
 
 
-#fruitbowlopt1{
-    position: fixed;
-    top: 10rem;
+.fruitbowl0{
+    font-size: 25px;
+    position: absolute;
+    top: 40rem;
     right: 1rem;
     background-color: rgb(98, 245, 49);
     box-shadow: 0px 25px 80px rgba(0, 0, 0, 0.5);
 
 }
-#fruitbowlopt2{
-    position: fixed;
-    top: 10rem;
-    right: 1rem;
-    background-color: rgb(98, 245, 49);
-    box-shadow: 0px 25px 80px rgba(0, 0, 0, 0.5);
-}
-#fruitbowlopt3{
-    position: fixed;
-    top: 10rem;
-    right: 1rem;
+.fruitbowl1{
+     font-size: 25px;
+    position: absolute;
+    top: 30rem;
+    right: 4rem;
     background-color: rgb(98, 245, 49);
     box-shadow: 0px 25px 80px rgba(0, 0, 0, 0.5);
 
 }
+.fruitbowl2{
+     font-size: 25px;
+    position: absolute;
+    top: 34rem;
+    right: 5rem;
+    background-color: rgb(98, 245, 49);
+    box-shadow: 0px 25px 80px rgba(0, 0, 0, 0.5);
+
+}
+
+
 
 .buf{
     background-color: rgb(244, 244, 155);

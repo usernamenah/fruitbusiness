@@ -16,7 +16,9 @@ import './HomePage.css'
 const Home = () => {
     const navigate = useNavigate();
 
-    const [hovered, setHovered] = useState(false);
+    const [hovered0, setHovered0] = useState(false);
+    const [hovered1, setHovered1] = useState(false);
+    const [hovered2, setHovered2] = useState(false);
 
 
 
@@ -91,20 +93,19 @@ const Home = () => {
 
                 <div className="container-fluid">
                     <div className="row justify-content-center">
-                        {/* Image 1 */}
                         <div className="col-6 col-md-3 text-center">
                             <div
                                 style={{
                                     cursor: 'pointer',
-                                    transform: hovered ? 'scale(1.1)' : 'scale(1)',
+                                    transform: hovered0 ? 'scale(1.1)' : 'scale(1)',
                                     transition: 'transform 0.3s ease-in-out',
                                     display: 'inline-block',
                                     padding: '25px',
                                     backgroundColor: '#d1f0ff',
                                     borderRadius: '8px',
                                 }}
-                                onMouseEnter={() => setHovered(true)}
-                                onMouseLeave={() => setHovered(false)}
+                                onMouseEnter={() => setHovered0(true)}
+                                onMouseLeave={() => setHovered0(false)}
                             >
                                 <div className="upaniforimg">
                                     <img src={fruitsmainimage1} alt="Fruit Bowl" className="image1" />
@@ -118,15 +119,15 @@ const Home = () => {
                             <div
                                 style={{
                                     cursor: 'pointer',
-                                    transform: hovered ? 'scale(1.1)' : 'scale(1)',
+                                    transform: hovered1 ? 'scale(1.1)' : 'scale(1)',
                                     transition: 'transform 0.3s ease-in-out',
                                     display: 'inline-block',
                                     padding: '25px',
                                     backgroundColor: 'rgb(255, 218, 170)',
                                     borderRadius: '8px',
                                 }}
-                                onMouseEnter={() => setHovered(true)}
-                                onMouseLeave={() => setHovered(false)}
+                                onMouseEnter={() => setHovered1(true)}
+                                onMouseLeave={() => setHovered1(false)}
                             >
                                 <div className="upaniforimg">
                                     <img src={fruitsmainimage} alt="Fruits" className="image2" />
@@ -140,17 +141,17 @@ const Home = () => {
                             <div
                                 style={{
                                     cursor: 'pointer',
-                                    transform: hovered ? 'scale(1.1)' : 'scale(1)',
+                                    transform: hovered2 ? 'scale(1.1)' : 'scale(1)',
                                     transition: 'transform 0.3s ease-in-out',
                                     display: 'inline-block',
                                     padding: '25px',
                                     backgroundColor: 'rgb(244, 244, 155)',
                                     borderRadius: '8px',
                                 }}
-                                onMouseEnter={() => setHovered(true)}
-                                onMouseLeave={() => setHovered(false)}
+                                onMouseEnter={() => setHovered2(true)}
+                                onMouseLeave={() => setHovered2(false)}
                             >
-                                <div className="upaniforimg">
+                                <div className="upaniforimg" >
                                     <img src={fruitsmainimage2} alt="Cold Pressed Juices" className="image3" />
                                     <p className="downlabel">COLD PRESSED JUICES</p>
                                 </div>
@@ -167,10 +168,32 @@ const Home = () => {
 
 
 
+                <div  
+                    style={{
+                        opacity: hovered0 ? 1 : 0,
+                        visibility: hovered0 ? 'visible' : 'hidden',
+                        transition: 'opacity 0.3s ease-in-out, visibility 0.3s ease-in-out',
+                        color: 'green',
+                    }}
+                >
+                    <div className="fruitbowl0">Normal fruit bowl</div>
+                    <div className="fruitbowl1">Medium fruit bowl</div>
+                    <div className="fruitbowl2">Premium fruit bowl</div>
+                </div>
                 <div
                     style={{
-                        opacity: hovered ? 1 : 0,
-                        visibility: hovered ? 'visible' : 'hidden',
+                        opacity: hovered1 ? 1 : 0,
+                        visibility: hovered1 ? 'visible' : 'hidden',
+                        transition: 'opacity 0.3s ease-in-out, visibility 0.3s ease-in-out',
+                        color: 'green',
+                    }}
+                >
+                    🍓 Fruit bowl appears!
+                </div>
+                <div
+                    style={{
+                        opacity: hovered2 ? 1 : 0,
+                        visibility: hovered2 ? 'visible' : 'hidden',
                         transition: 'opacity 0.3s ease-in-out, visibility 0.3s ease-in-out',
                         color: 'green',
                     }}
@@ -181,7 +204,6 @@ const Home = () => {
 
 
 
-                <div className="fruitbowl" id="fruitbowlopt1">Normal fruit bowl </div>
                 <div className="fruitbowl">Medium fruit bowl </div>
                 <div className="fruitbowl">Premium fruit bowl </div>
                 <div className="fruitjuiceopt1"></div>
