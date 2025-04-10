@@ -1,7 +1,9 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import LoginPage from "./components/LoginPage.js";
 import HomePage from "./components/HomePage.js";
-import BookingPage from "./components/Booking.js"
+import BookingPage from "./components/Booking.js";
+import 'ldrs/ring'
+import { grid } from 'ldrs'
 // import Cookies from "js-cookie";
 import { useState, useEffect } from "react";
 
@@ -24,13 +26,19 @@ const App = () => {
             } catch (error) {
                 setIsAuth(false);
             } finally {
-                setTimeout(() => setAuthChecked(true), 2000);
+                setTimeout(() => setAuthChecked(true), 5000);
             }
         };
         checkAuth();
     }, []);
+    grid.register()
     if (!authChecked) {
-        return <div>Loading...</div>;
+        return <div className='loader'>
+<l-grid
+  size="800"
+  speed="1.5" 
+  color="orange" 
+></l-grid></div>;
     }
 
     return (

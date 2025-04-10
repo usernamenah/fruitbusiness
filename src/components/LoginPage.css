@@ -25,6 +25,7 @@ body, html {
     align-items: center;
     height: 100vh;
     width: 100%;
+    
 }
 
 .login-box {
@@ -35,6 +36,9 @@ body, html {
     padding: 30px;
     border-radius: 10px;
     box-shadow: rgb(194, 132, 0) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    -webkit-box-shadow:0px 0px 89px 77px rgb(160, 75, 15);
+-moz-box-shadow: 0px 0px 89px 77px rgb(160, 75, 15);
+box-shadow: 0px 0px 89px 77px rgb(160, 75, 15);
 
 }
 
