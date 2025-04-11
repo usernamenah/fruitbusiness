@@ -186,7 +186,7 @@ const Home = () => {
                         <center>
 
                        
-                    <div className="fb1">       
+                        <div className="fb1">       
                         Normal fruit bowl
                     </div>
                     <br></br>
@@ -214,8 +214,43 @@ const Home = () => {
                         color: 'green',
                     }}
                 >
-                    <div className="fruitbowl11">Medium fruit bowl</div>
-                    <div className="fruitbowl12">Medium fruit bowl</div>
+                    <div className="fruitbowl11">
+                    <div className="fb2">       
+                        Normal fruit bowl
+                    </div>
+                    <br></br>
+                    <br></br>
+
+                    <div className="fb2">       
+                        Medium fruit bowl
+                    </div>
+                    <br></br>
+                    <br></br>
+
+                    <div className="fb2">       
+                        Premium fruit bowl
+                    </div>
+
+                    </div>
+                    <div className="fruitbowl12">
+                        
+                    <div className="fb2">       
+                        Normal fruit bowl
+                    </div>
+                    <br></br>
+                    <br></br>
+
+                    <div className="fb2">       
+                        Medium fruit bowl
+                    </div>
+                    <br></br>
+                    <br></br>
+
+                    <div className="fb2">       
+                        Premium fruit bowl
+                    </div>
+
+                    </div>
                 </div>
                 <div
                     style={{
@@ -225,7 +260,24 @@ const Home = () => {
                         color: 'green',
                     }}
                 >
-                    <div className="fruitbowl2">Premium fruit bowl</div>
+                    <div className="fruitbowl2">
+                        
+                    <div className="fb3">       
+                        Normal fruit bowl
+                    </div>
+                    <br></br>
+                    <br></br>
+
+                    <div className="fb3">       
+                        Medium fruit bowl
+                    </div>
+                    <br></br>
+                    <br></br>
+
+                    <div className="fb3">       
+                        Premium fruit bowl
+                    </div>
+                    </div>
                 </div>
                 {/* <div
                     style={{

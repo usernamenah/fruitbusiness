@@ -1,39 +1,42 @@
-.imagetext{
+.imagetext {
     font-size: 170px;
     background-image: url('./images/slicesshort.jpg');
     background-size: contain;
     /* -webkit-background-clip: text; */
     -webkit-text-fill-color: white;
     animation: animate 25s linear infinite;
-    text-shadow: 
-        0 0 5px orange, 
-        0 0 10px yellow, 
-        0 0 15px orange, 
-        0 0 20px yellow, 
+    text-shadow:
+        0 0 5px orange,
+        0 0 10px yellow,
+        0 0 15px orange,
+        0 0 20px yellow,
         0 0 25px orange;
 }
+
 .imagetext::selection {
     background: yellow;
     color: orange;
-    text-shadow: 
-        0 0 5px orange, 
-        0 0 10px yellow, 
-        0 0 15px orange, 
-        0 0 20px yellow, 
+    text-shadow:
+        0 0 5px orange,
+        0 0 10px yellow,
+        0 0 15px orange,
+        0 0 20px yellow,
         0 0 25px orange;
 
-  }
+}
+
 @keyframes animate {
-    to{
+    to {
         background-position-x: -1000px;
     }
 
 
 }
 
-.blink{
+.blink {
     animation: flicker 5s infinite alternate;
 }
+
 @keyframes flicker {
 
     0%,
@@ -43,27 +46,36 @@
     53%,
     57%,
     100% {
-      text-shadow:
-        0 0 1px yellow,   /* Reduced from 4px */
-        0 0 5px yellow,   /* Reduced from 11px */
-        0 0 1px yellow,   /* Reduced from 19px */
-        0 0 0px yellow,  /* Reduced from 40px */
-        0 0 10px yellow,  /* Reduced from 80px */
-        0 0 15px yellow,  /* Reduced from 90px */
-        0 0 5px yellow,  /* Reduced from 100px */
-        0 0 5px yellow;  /* Reduced from 150px */
+        text-shadow:
+            0 0 1px yellow,
+            /* Reduced from 4px */
+            0 0 5px yellow,
+            /* Reduced from 11px */
+            0 0 1px yellow,
+            /* Reduced from 19px */
+            0 0 0px yellow,
+            /* Reduced from 40px */
+            0 0 10px yellow,
+            /* Reduced from 80px */
+            0 0 15px yellow,
+            /* Reduced from 90px */
+            0 0 5px yellow,
+            /* Reduced from 100px */
+            0 0 5px yellow;
+        /* Reduced from 150px */
     }
 
     20%,
     24%,
     55% {
-      text-shadow: none;
+        text-shadow: none;
     }
 }
 
-.blink2{
+.blink2 {
     animation: flickers 5s infinite alternate;
 }
+
 @keyframes flickers {
 
     0%,
@@ -73,25 +85,33 @@
     53%,
     57%,
     100% {
-      text-shadow:
-        0 0 1px orange,   /* Reduced from 4px */
-        0 0 5px orange,   /* Reduced from 11px */
-        0 0 1px orange,   /* Reduced from 19px */
-        0 0 20px orange,  /* Reduced from 40px */
-        0 0 10px orange,  /* Reduced from 80px */
-        0 0 15px orange,  /* Reduced from 90px */
-        0 0 5px orange,  /* Reduced from 100px */
-        0 0 25px orange;  /* Reduced from 150px */
+        text-shadow:
+            0 0 1px orange,
+            /* Reduced from 4px */
+            0 0 5px orange,
+            /* Reduced from 11px */
+            0 0 1px orange,
+            /* Reduced from 19px */
+            0 0 20px orange,
+            /* Reduced from 40px */
+            0 0 10px orange,
+            /* Reduced from 80px */
+            0 0 15px orange,
+            /* Reduced from 90px */
+            0 0 5px orange,
+            /* Reduced from 100px */
+            0 0 25px orange;
+        /* Reduced from 150px */
     }
 
     20%,
     24%,
     55% {
-      text-shadow: none;
+        text-shadow: none;
     }
 }
 
-  .intro {
+.intro {
     transform: scale(1);
     transition: all 0.3s ease-in-out;
     cursor: auto;
@@ -105,6 +125,7 @@
     cursor: pointer;
     background-color: rgb(253, 241, 227);
 }
+
 .intro:hover .intropara {
     font-size: 15px;
 }
@@ -130,6 +151,7 @@
     .intro {
         padding: 15px;
     }
+
     .intropara {
         font-size: 16px;
     }
@@ -140,6 +162,7 @@
     .intro {
         padding: 12px;
     }
+
     .intropara {
         font-size: 14px;
     }
@@ -150,6 +173,7 @@
     .intro {
         padding: 10px;
     }
+
     .intropara {
         font-size: 12px;
         line-height: 1.4;
@@ -161,6 +185,7 @@
     .intro {
         padding: 8px;
     }
+
     .intropara {
         font-size: 10px;
         line-height: 1.3;
@@ -172,6 +197,7 @@
     .intro {
         padding: 5px;
     }
+
     .intropara {
         font-size: 8px;
         line-height: 1.2;
@@ -196,7 +222,7 @@
   } */
 
 
-.downlabel{
+.downlabel {
     font-weight: bolder;
     align-self: center;
     align-items: center;
@@ -209,97 +235,126 @@
     height: 300px;
     background-color: rgb(20, 59, 219);
 } */
- 
-.fruitbowl{
+
+.fruitbowl {
     display: none;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
 
 }
 
-.upaniforimg{
+.upaniforimg {
     cursor: pointer;
     transform: scale(1);
-    transition: all 0.3s  ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
+
 .upaniforimg:hover {
     transform: scale(1.3);
-  }
-  
-  .upaniforimg:hover + .fruitbowl {
-    display: block;
-  opacity: 1;
-  }
+}
 
-.downlabel{
+.upaniforimg:hover+.fruitbowl {
+    display: block;
+    opacity: 1;
+}
+
+.downlabel {
     font-size: 0px;
-    transition: all 0.3s  ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 
 
-.intropara{
+.intropara {
     font-weight: bold;
-     font-family: Georgia, serif;
+    font-family: Georgia, serif;
     padding-left: 10%;
     padding-right: 10%;
 }
 
 /* Default styles */
-.image1,  .image3 {
-    user-select: none; /* Prevents selection */
-    pointer-events: none; /* Disables interaction */
+.image1,
+.image3 {
+    user-select: none;
+    /* Prevents selection */
+    pointer-events: none;
+    /* Disables interaction */
     margin-top: 30px;
-    width: 90%; /* Makes images large on mobile */
-    max-width: 250px; /* Controls maximum width */
-    height: auto; /* Maintains aspect ratio */
+    width: 90%;
+    /* Makes images large on mobile */
+    max-width: 250px;
+    /* Controls maximum width */
+    height: auto;
+    /* Maintains aspect ratio */
     display: block;
     margin-left: auto;
-   
+
     margin-right: auto;
-    animation: float 3s ease-in-out infinite; 
-    -webkit-box-shadow:0px 0px 41px 14px rgba(32,130,227,1);
--moz-box-shadow: 0px 0px 41px 14px rgba(32,130,227,1);
-box-shadow: 0px 0px 41px 14px rgba(32,130,227,1);
+    animation: float 3s ease-in-out infinite;
+    -webkit-box-shadow: 0px 0px 41px 14px rgba(32, 130, 227, 1);
+    -moz-box-shadow: 0px 0px 41px 14px rgba(32, 130, 227, 1);
+    box-shadow: 0px 0px 41px 14px rgba(32, 130, 227, 1);
 }
-.image2{
-    user-select: none; /* Prevents selection */
-    pointer-events: none; /* Disables interaction */
+
+.image2 {
+    user-select: none;
+    /* Prevents selection */
+    pointer-events: none;
+    /* Disables interaction */
     margin-top: 30px;
-    width: 90%; /* Makes images large on mobile */
-    max-width: 250px; /* Controls maximum width */
-    height: auto; /* Maintains aspect ratio */
+    width: 90%;
+    /* Makes images large on mobile */
+    max-width: 250px;
+    /* Controls maximum width */
+    height: auto;
+    /* Maintains aspect ratio */
     display: block;
     margin-left: auto;
-   
+
     margin-right: auto;
-    animation: float 3s ease-in-out infinite; 
-    -webkit-box-shadow:0px 0px 41px 14px rgb(255, 162, 40);
--moz-box-shadow: 0px 0px 41px 14px rgb(255, 162,40);
-box-shadow: 0px 0px 41px 14px rgb(255, 162,40);
+    animation: float 3s ease-in-out infinite;
+    -webkit-box-shadow: 0px 0px 41px 14px rgb(255, 162, 40);
+    -moz-box-shadow: 0px 0px 41px 14px rgb(255, 162, 40);
+    box-shadow: 0px 0px 41px 14px rgb(255, 162, 40);
 }
-.image3{
-    user-select: none; /* Prevents selection */
-    pointer-events: none; /* Disables interaction */
+
+.image3 {
+    user-select: none;
+    /* Prevents selection */
+    pointer-events: none;
+    /* Disables interaction */
     margin-top: 30px;
-    width: 90%; /* Makes images large on mobile */
-    max-width: 250px; /* Controls maximum width */
-    height: auto; /* Maintains aspect ratio */
+    width: 90%;
+    /* Makes images large on mobile */
+    max-width: 250px;
+    /* Controls maximum width */
+    height: auto;
+    /* Maintains aspect ratio */
     display: block;
     margin-left: auto;
-   
+
     margin-right: auto;
-    animation: float 3s ease-in-out infinite; 
-    -webkit-box-shadow:0px 0px 41px 14px rgb(255, 255, 1);
--moz-box-shadow: 0px 0px 41px 14px rgb(255, 255, 1);
-box-shadow: 0px 0px 41px 14px rgb(255, 255, 1);
+    animation: float 3s ease-in-out infinite;
+    -webkit-box-shadow: 0px 0px 41px 14px rgb(255, 255, 1);
+    -moz-box-shadow: 0px 0px 41px 14px rgb(255, 255, 1);
+    box-shadow: 0px 0px 41px 14px rgb(255, 255, 1);
 }
+
 @keyframes float {
-    0% { transform: translateY(0px); }     
-    50% { transform: translateY(-10px); }      
-    100% { transform: translateY(0px); } 
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 
 }
+
 /* Label styles */
 .downlabel {
     text-align: center;
@@ -310,54 +365,78 @@ box-shadow: 0px 0px 41px 14px rgb(255, 255, 1);
 
 /* 📱 Responsive adjustments */
 @media (max-width: 1024px) {
-    .image1, .image2, .image3 {
+
+    .image1,
+    .image2,
+    .image3 {
         max-width: 220px;
     }
+
     .downlabel {
         font-size: 16px;
     }
 }
 
 @media (max-width: 768px) {
-    .image1, .image2, .image3 {
+
+    .image1,
+    .image2,
+    .image3 {
         max-width: 180px;
     }
+
     .downlabel {
         font-size: 14px;
     }
 }
 
 @media (max-width: 600px) {
-    .image1, .image2, .image3 {
+
+    .image1,
+    .image2,
+    .image3 {
         max-width: 160px;
     }
+
     .downlabel {
         font-size: 13px;
     }
 }
 
 @media (max-width: 480px) {
-    .image1, .image2, .image3 {
+
+    .image1,
+    .image2,
+    .image3 {
         max-width: 140px;
     }
+
     .downlabel {
         font-size: 12px;
     }
 }
 
 @media (max-width: 360px) {
-    .image1, .image2, .image3 {
+
+    .image1,
+    .image2,
+    .image3 {
         max-width: 120px;
     }
+
     .downlabel {
         font-size: 11px;
     }
 }
 
 @media (max-width: 280px) {
-    .image1, .image2, .image3 {
+
+    .image1,
+    .image2,
+    .image3 {
         max-width: 100px;
     }
+
     .downlabel {
         font-size: 10px;
     }
@@ -369,8 +448,9 @@ box-shadow: 0px 0px 41px 14px rgb(255, 255, 1);
     .imagetext {
         font-size: 2.5rem;
     }
-   
+
 }
+
 @media (max-width: 1400px) {
     .imagetext {
         font-size: 120px;
@@ -394,6 +474,7 @@ box-shadow: 0px 0px 41px 14px rgb(255, 255, 1);
         font-size: 40px;
     }
 }
+
 @media (max-width: 360px) {
     .imagetext {
         font-size: 25px;
@@ -405,7 +486,7 @@ box-shadow: 0px 0px 41px 14px rgb(255, 255, 1);
 /* form here i am gonna make teh css furthur  */
 
 
-.phonecheck{
+.phonecheck {
     position: fixed;
     top: 10rem;
     right: 1rem;
@@ -419,81 +500,118 @@ box-shadow: 0px 0px 41px 14px rgb(255, 255, 1);
 
 
 
-.fruitbowl0{
+.fruitbowl0 {
     font-size: 25px;
     position: absolute;
     top: 40rem;
     right: 10rem;
-    user-select: none; /* Prevents selection */
+    user-select: none;
+    /* Prevents selection */
     pointer-events: none;
     width: 750px;
     height: 470px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* soft shadow */
-    backdrop-filter: blur(10px); /* main part of glass effect */
-    -webkit-backdrop-filter: blur(10px); /* Safari support */
-    border: 1px solid rgba(255, 255, 255, 0.3); /* subtle border */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    /* soft shadow */
+    backdrop-filter: blur(10px);
+    /* main part of glass effect */
+    -webkit-backdrop-filter: blur(10px);
+    /* Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* subtle border */
     align-items: center;
     justify-content: center;
 
 }
-.fruitbowl11{
+
+.fruitbowl11 {
     width: 500px;
     height: 470px;
 
 
     font-size: 25px;
-   position: absolute;
-   top: 40rem;
-   right: 4rem;
-   user-select: none; /* Prevents selection */
+    position: absolute;
+    top: 40rem;
+    right: 4rem;
+    user-select: none;
+    /* Prevents selection */
     pointer-events: none;
-   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* soft shadow */
-   backdrop-filter: blur(10px); /* main part of glass effect */
-   -webkit-backdrop-filter: blur(10px); /* Safari support */
-   border: 1px solid rgba(255, 255, 255, 0.3); /* subtle border */
-
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    /* soft shadow */
+    backdrop-filter: blur(10px);
+    /* main part of glass effect */
+    -webkit-backdrop-filter: blur(10px);
+    /* Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* subtle border */
+    align-items: center;
+    justify-content: center;
 }
-.fruitbowl12{
+
+.fruitbowl12 {
     width: 500px;
     height: 470px;
 
 
     font-size: 25px;
-   position: absolute;
-   top: 40rem;
-   left: 4rem;
-   user-select: none; /* Prevents selection */
+    position: absolute;
+    top: 40rem;
+    left: 4rem;
+    user-select: none;
+    /* Prevents selection */
     pointer-events: none;
-   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* soft shadow */
-   backdrop-filter: blur(10px); /* main part of glass effect */
-   -webkit-backdrop-filter: blur(10px); /* Safari support */
-   border: 1px solid rgba(255, 255, 255, 0.3); /* subtle border */
-
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    /* soft shadow */
+    backdrop-filter: blur(10px);
+    /* main part of glass effect */
+    -webkit-backdrop-filter: blur(10px);
+    /* Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* subtle border */
+    align-items: center;
+    justify-content: center;
 }
-.fruitbowl2{
+
+.fruitbowl2 {
     font-size: 25px;
     position: absolute;
     top: 40rem;
     left: 10rem;
-    user-select: none; /* Prevents selection */
+    user-select: none;
+    /* Prevents selection */
     pointer-events: none;
     width: 750px;
     height: 470px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* soft shadow */
-    backdrop-filter: blur(10px); /* main part of glass effect */
-    -webkit-backdrop-filter: blur(10px); /* Safari support */
-    border: 1px solid rgba(255, 255, 255, 0.3); /* subtle border */
-
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    /* soft shadow */
+    backdrop-filter: blur(10px);
+    /* main part of glass effect */
+    -webkit-backdrop-filter: blur(10px);
+    /* Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* subtle border */
+    align-items: center;
+    justify-content: center;
 }
 
 
-
-.buf{
-    background-color: rgb(244, 244, 155);
-}
-
-.fb1{
+.fb1 {
     color: white;
     background-color: rgb(30, 180, 249);
     border-radius: 40px;
+    align-items: center;
+    justify-content: center;
+}
+.fb2 {
+    color: white;
+    background-color: rgb(249, 154, 30);
+    border-radius: 40px;
+    align-items: center;
+    justify-content: center;
+}
+.fb3 {
+    color: orange;
+    background-color: rgb(251, 255, 18);
+    border-radius: 40px;
+    align-items: center;
+    justify-content: center;
 }
