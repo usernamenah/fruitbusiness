@@ -423,27 +423,66 @@ box-shadow: 0px 0px 41px 14px rgb(255, 255, 1);
     font-size: 25px;
     position: absolute;
     top: 40rem;
-    right: 1rem;
-    background-color: rgb(98, 245, 49);
-    box-shadow: 0px 25px 80px rgba(0, 0, 0, 0.5);
+    right: 10rem;
+    user-select: none; /* Prevents selection */
+    pointer-events: none;
+    width: 750px;
+    height: 470px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* soft shadow */
+    backdrop-filter: blur(10px); /* main part of glass effect */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* subtle border */
+    align-items: center;
+    justify-content: center;
 
 }
-.fruitbowl1{
-     font-size: 25px;
-    position: absolute;
-    top: 30rem;
-    right: 4rem;
-    background-color: rgb(98, 245, 49);
-    box-shadow: 0px 25px 80px rgba(0, 0, 0, 0.5);
+.fruitbowl11{
+    width: 500px;
+    height: 470px;
+
+
+    font-size: 25px;
+   position: absolute;
+   top: 40rem;
+   right: 4rem;
+   user-select: none; /* Prevents selection */
+    pointer-events: none;
+   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* soft shadow */
+   backdrop-filter: blur(10px); /* main part of glass effect */
+   -webkit-backdrop-filter: blur(10px); /* Safari support */
+   border: 1px solid rgba(255, 255, 255, 0.3); /* subtle border */
+
+}
+.fruitbowl12{
+    width: 500px;
+    height: 470px;
+
+
+    font-size: 25px;
+   position: absolute;
+   top: 40rem;
+   left: 4rem;
+   user-select: none; /* Prevents selection */
+    pointer-events: none;
+   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* soft shadow */
+   backdrop-filter: blur(10px); /* main part of glass effect */
+   -webkit-backdrop-filter: blur(10px); /* Safari support */
+   border: 1px solid rgba(255, 255, 255, 0.3); /* subtle border */
 
 }
 .fruitbowl2{
-     font-size: 25px;
+    font-size: 25px;
     position: absolute;
-    top: 34rem;
-    right: 5rem;
-    background-color: rgb(98, 245, 49);
-    box-shadow: 0px 25px 80px rgba(0, 0, 0, 0.5);
+    top: 40rem;
+    left: 10rem;
+    user-select: none; /* Prevents selection */
+    pointer-events: none;
+    width: 750px;
+    height: 470px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* soft shadow */
+    backdrop-filter: blur(10px); /* main part of glass effect */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* subtle border */
 
 }
 
@@ -451,4 +490,10 @@ box-shadow: 0px 0px 41px 14px rgb(255, 255, 1);
 
 .buf{
     background-color: rgb(244, 244, 155);
+}
+
+.fb1{
+    color: white;
+    background-color: rgb(30, 180, 249);
+    border-radius: 40px;
 }

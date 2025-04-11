@@ -176,27 +176,52 @@ const Home = () => {
                     style={{
                         opacity: hovered0 ? 1 : 0,
                         visibility: hovered0 ? 'visible' : 'hidden',
-                        transition: 'opacity 0.3s ease-in-out, visibility 0.3s ease-in-out',
+                        transition: 'opacity 0s ease-in-out, visibility 0.3s ease-in-out',
                         color: 'green',
                     }}
                 >
-                    <div className="fruitbowl0">Normal fruit bowl</div>
+                    <div className="fruitbowl0">
+                        <br></br>
+                        
+                        <center>
+
+                       
+                    <div className="fb1">       
+                        Normal fruit bowl
+                    </div>
+                    <br></br>
+                    <br></br>
+
+                    <div className="fb1">       
+                        Medium fruit bowl
+                    </div>
+                    <br></br>
+                    <br></br>
+
+                    <div className="fb1">       
+                        Premium fruit bowl
+                    </div>
+                     </center>
+                    
+                    
+                    </div>
                 </div>
                 <div
                     style={{
                         opacity: hovered1 ? 1 : 0,
                         visibility: hovered1 ? 'visible' : 'hidden',
-                        transition: 'opacity 0.3s ease-in-out, visibility 0.3s ease-in-out',
+                        transition: 'opacity 0s ease-in-out, visibility 0.3s ease-in-out',
                         color: 'green',
                     }}
                 >
-                    <div className="fruitbowl1">Medium fruit bowl</div>
+                    <div className="fruitbowl11">Medium fruit bowl</div>
+                    <div className="fruitbowl12">Medium fruit bowl</div>
                 </div>
                 <div
                     style={{
                         opacity: hovered2 ? 1 : 0,
                         visibility: hovered2 ? 'visible' : 'hidden',
-                        transition: 'opacity 0.3s ease-in-out, visibility 0.3s ease-in-out',
+                        transition: 'opacity 0s ease-in-out, visibility 0.3s ease-in-out',
                         color: 'green',
                     }}
                 >
