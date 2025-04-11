@@ -181,7 +181,25 @@ const Home = () => {
                     }}
                 >
                     <div className="fruitbowl0">Normal fruit bowl</div>
+                </div>
+                <div
+                    style={{
+                        opacity: hovered1 ? 1 : 0,
+                        visibility: hovered1 ? 'visible' : 'hidden',
+                        transition: 'opacity 0.3s ease-in-out, visibility 0.3s ease-in-out',
+                        color: 'green',
+                    }}
+                >
                     <div className="fruitbowl1">Medium fruit bowl</div>
+                </div>
+                <div
+                    style={{
+                        opacity: hovered2 ? 1 : 0,
+                        visibility: hovered2 ? 'visible' : 'hidden',
+                        transition: 'opacity 0.3s ease-in-out, visibility 0.3s ease-in-out',
+                        color: 'green',
+                    }}
+                >
                     <div className="fruitbowl2">Premium fruit bowl</div>
                 </div>
                 {/* <div
