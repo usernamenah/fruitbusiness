@@ -52,7 +52,7 @@ const Home = () => {
                         <header className="display-2">
 
                             <br></br>
-                            <br></br>
+                          
                             <b>
                                 <div className="imagetext">
                                     <span className="blink">
@@ -104,68 +104,68 @@ const Home = () => {
                                     backgroundColor: '#d1f0ff',
                                     borderRadius: '8px',
                                 }}
-                            onMouseEnter={() => setHovered0(true)}
-                            onMouseLeave={() => setHovered0(false)}
-                            onClick={() => navigate("/book")}
+                                onMouseEnter={() => setHovered0(true)}
+                                onMouseLeave={() => setHovered0(false)}
+                                onClick={() => navigate("/book")}
                             >
-                            <div className="upaniforimg" >
-                                <img src={fruitsmainimage1} alt="Fruit Bowl" className="image1" />
-                                <p className="downlabel">FRUIT BOWL</p>
+                                <div className="upaniforimg" >
+                                    <img src={fruitsmainimage1} alt="Fruit Bowl" className="image1" />
+                                    <p className="downlabel">FRUIT BOWL</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    {/* Image 2 */}
-                    <div className="col-6 col-md-3 text-center">
-                        <div
-                            style={{
-                                cursor: 'pointer',
-                                transform: hovered1 ? 'scale(1.1)' : 'scale(1)',
-                                transition: 'transform 0.3s ease-in-out',
-                                display: 'inline-block',
-                                padding: '25px',
-                                backgroundColor: 'rgb(255, 218, 170)',
-                                borderRadius: '8px',
-                            }}
-                            onMouseEnter={() => setHovered1(true)}
-                            onMouseLeave={() => setHovered1(false)}
-                            onClick={() => navigate("/book")}
+                        {/* Image 2 */}
+                        <div className="col-6 col-md-3 text-center">
+                            <div
+                                style={{
+                                    cursor: 'pointer',
+                                    transform: hovered1 ? 'scale(1.1)' : 'scale(1)',
+                                    transition: 'transform 0.3s ease-in-out',
+                                    display: 'inline-block',
+                                    padding: '25px',
+                                    backgroundColor: 'rgb(255, 218, 170)',
+                                    borderRadius: '8px',
+                                }}
+                                onMouseEnter={() => setHovered1(true)}
+                                onMouseLeave={() => setHovered1(false)}
+                                onClick={() => navigate("/book")}
 
-                        >
-                            <div className="upaniforimg">
-                                <img src={fruitsmainimage} alt="Fruits" className="image2" />
-                                <p className="downlabel">JUICES</p>
+                            >
+                                <div className="upaniforimg">
+                                    <img src={fruitsmainimage} alt="Fruits" className="image2" />
+                                    <p className="downlabel">JUICES</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    {/* Image 3 */}
-                    <div className="col-6 col-md-3 text-center">
-                        <div
-                            style={{
-                                cursor: 'pointer',
-                                transform: hovered2 ? 'scale(1.1)' : 'scale(1)',
-                                transition: 'transform 0.3s ease-in-out',
-                                display: 'inline-block',
-                                padding: '25px',
-                                backgroundColor: 'rgb(244, 244, 155)',
-                                borderRadius: '8px',
-                            }}
-                            onMouseEnter={() => setHovered2(true)}
-                            onMouseLeave={() => setHovered2(false)}
-                            onClick={() => navigate("/book")}
+                        {/* Image 3 */}
+                        <div className="col-6 col-md-3 text-center">
+                            <div
+                                style={{
+                                    cursor: 'pointer',
+                                    transform: hovered2 ? 'scale(1.1)' : 'scale(1)',
+                                    transition: 'transform 0.3s ease-in-out',
+                                    display: 'inline-block',
+                                    padding: '25px',
+                                    backgroundColor: 'rgb(244, 244, 155)',
+                                    borderRadius: '8px',
+                                }}
+                                onMouseEnter={() => setHovered2(true)}
+                                onMouseLeave={() => setHovered2(false)}
+                                onClick={() => navigate("/book")}
 
-                        >
-                            <div className="upaniforimg" >
-                                <img src={fruitsmainimage2} alt="Cold Pressed Juices" className="image3" />
-                                <p className="downlabel">COLD PRESSED JUICES</p>
+                            >
+                                <div className="upaniforimg" >
+                                    <img src={fruitsmainimage2} alt="Cold Pressed Juices" className="image3" />
+                                    <p className="downlabel">COLD PRESSED JUICES</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-        </div >
+            </div >
             <div>
 
                 {/* 👇 This is the hoverable section */}
@@ -182,28 +182,29 @@ const Home = () => {
                 >
                     <div className="fruitbowl0">
                         <br></br>
-                        
+                        <br></br>
+
                         <center>
 
-                       
-                        <div className="fb1">       
-                        Normal fruit bowl
-                    </div>
-                    <br></br>
-                    <br></br>
 
-                    <div className="fb1">       
-                        Medium fruit bowl
-                    </div>
-                    <br></br>
-                    <br></br>
+                            <div className="fb1">
+                                Normal fruit bowl
+                            </div>
+                            <br></br>
+                            <br></br>
 
-                    <div className="fb1">       
-                        Premium fruit bowl
-                    </div>
-                     </center>
-                    
-                    
+                            <div className="fb1">
+                                Medium fruit bowl
+                            </div>
+                            <br></br>
+                            <br></br>
+
+                            <div className="fb1">
+                                Premium fruit bowl
+                            </div>
+                        </center>
+
+
                     </div>
                 </div>
                 <div
@@ -215,40 +216,44 @@ const Home = () => {
                     }}
                 >
                     <div className="fruitbowl11">
-                    <div className="fb2">       
-                        Normal fruit bowl
-                    </div>
-                    <br></br>
-                    <br></br>
+                        <br></br>
+                        <br></br>
+                        <div className="fb2">
+                            Normal fruit bowl
+                        </div>
+                        <br></br>
+                        <br></br>
 
-                    <div className="fb2">       
-                        Medium fruit bowl
-                    </div>
-                    <br></br>
-                    <br></br>
+                        <div className="fb2">
+                            Medium fruit bowl
+                        </div>
+                        <br></br>
+                        <br></br>
 
-                    <div className="fb2">       
-                        Premium fruit bowl
-                    </div>
+                        <div className="fb2">
+                            Premium fruit bowl
+                        </div>
 
                     </div>
                     <div className="fruitbowl12">
-                        
-                    <div className="fb2">       
-                        Normal fruit bowl
-                    </div>
-                    <br></br>
-                    <br></br>
+                        <br></br>
+                        <br></br>
 
-                    <div className="fb2">       
-                        Medium fruit bowl
-                    </div>
-                    <br></br>
-                    <br></br>
+                        <div className="fb2">
+                            Normal fruit bowl
+                        </div>
+                        <br></br>
+                        <br></br>
 
-                    <div className="fb2">       
-                        Premium fruit bowl
-                    </div>
+                        <div className="fb2">
+                            Medium fruit bowl
+                        </div>
+                        <br></br>
+                        <br></br>
+
+                        <div className="fb2">
+                            Premium fruit bowl
+                        </div>
 
                     </div>
                 </div>
@@ -261,22 +266,24 @@ const Home = () => {
                     }}
                 >
                     <div className="fruitbowl2">
-                        
-                    <div className="fb3">       
-                        Normal fruit bowl
-                    </div>
-                    <br></br>
-                    <br></br>
+                        <br></br>
+                        <br></br>
 
-                    <div className="fb3">       
-                        Medium fruit bowl
-                    </div>
-                    <br></br>
-                    <br></br>
+                        <div className="fb3">
+                            Normal fruit bowl
+                        </div>
+                        <br></br>
+                        <br></br>
 
-                    <div className="fb3">       
-                        Premium fruit bowl
-                    </div>
+                        <div className="fb3">
+                            Medium fruit bowl
+                        </div>
+                        <br></br>
+                        <br></br>
+
+                        <div className="fb3">
+                            Premium fruit bowl
+                        </div>
                     </div>
                 </div>
                 {/* <div
@@ -321,13 +328,65 @@ const Home = () => {
                 <div className="">
                     this is home page
                 </div> */}
-
+                <br></br>
+                <br></br>
+                <br></br>
                 <div className="footer">
                     <div className="containerfluid">
-                        b
+                        <div className="footer-content">
+                            <div className="delivery">
+                                <h3>We Deliver To:</h3>
+                                <p>Keshav Nagar , Magarpatta ,  Amanora</p>
+                            </div>
+
+                            <div className="contact">
+                                <h3>Contact Us</h3>
+                                <p>Phone: 9-575-675-775</p>
+                                <div className="icons">
+                                    {/* WhatsApp */}
+                                    <a
+                                        href="https://wa.me/919575675775?text=Hi%2C%20I%20want%20to%20contact%20you"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="icon"
+                                        title="WhatsApp Us"
+                                    >
+                                        <svg width="30" height="30" viewBox="0 0 32 32" fill="green">
+                                            <path d="M16.004 0.003c-8.837 0-16 7.162-16 16 0 2.82 0.736 5.578 2.132 8.008l-2.132 7.989 8.211-2.132c2.377 1.313 5.053 2.005 7.789 2.005 8.837 0 16-7.162 16-16s-7.163-16-16-16zM16 29.001c-2.429 0-4.804-0.662-6.889-1.915l-0.492-0.293-4.872 1.265 1.293-4.757-0.318-0.521c-1.278-2.094-1.954-4.494-1.954-6.779 0-7.168 5.832-13 13-13s13 5.832 13 13-5.832 13-13 13zM22.366 19.36c-0.377-0.188-2.233-1.1-2.58-1.223s-0.598-0.188-0.848 0.188c-0.248 0.377-0.974 1.223-1.2 1.472s-0.447 0.277-0.824 0.094c-0.377-0.188-1.593-0.587-3.035-1.873-1.121-1-1.879-2.232-2.099-2.609s-0.023-0.577 0.164-0.765c0.168-0.167 0.377-0.437 0.565-0.656s0.248-0.376 0.373-0.628c0.124-0.248 0.062-0.469-0.031-0.656s-0.848-2.043-1.162-2.809c-0.305-0.733-0.617-0.635-0.848-0.647-0.219-0.010-0.469-0.012-0.719-0.012s-0.656 0.094-1.002 0.469c-0.343 0.377-1.343 1.312-1.343 3.2s1.373 3.708 1.563 3.964c0.188 0.248 2.706 4.125 6.555 5.789 0.916 0.395 1.629 0.629 2.187 0.805 0.918 0.291 1.751 0.25 2.411 0.152 0.736-0.109 2.233-0.91 2.547-1.786 0.311-0.874 0.311-1.624 0.217-1.786-0.094-0.161-0.342-0.248-0.719-0.437z" />
+                                        </svg>
+                                    </a>
+
+                                    {/* Email */}
+                                    <a
+                                        href="https://mail.google.com/mail/?view=cm&fs=1&to=example@email.com&su=Contact%20Request&body=Hi%2C%20I%20want%20to%20contact%20you"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="icon"
+                                        title="Email Us"
+                                    >
+                                        <svg width="30" height="30" viewBox="0 0 24 24" fill="red">
+                                            <path d="M12 13.5l-11.5-7.5h23l-11.5 7.5zm0 2.5l-11.5-7.5v12h23v-12l-11.5 7.5z" />
+                                        </svg>
+                                    </a>
+
+                                    {/* Instagram */}
+                                    <a
+                                        href="https://instagram.com/yourpage"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="icon"
+                                        title="Follow Us on Instagram"
+                                    >
+                                        <svg width="30" height="30" viewBox="0 0 24 24" fill="#E1306C">
+                                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.33 3.608 1.304.975.975 1.242 2.242 1.304 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.33 2.633-1.304 3.608-.975.975-2.242 1.242-3.608 1.304-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.33-3.608-1.304-.975-.975-1.242-2.242-1.304-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.33-2.633 1.304-3.608.975-.975 2.242-1.242 3.608-1.304 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.012-4.947.07-1.674.077-3.162.518-4.35 1.706s-1.629 2.676-1.706 4.35c-.058 1.28-.07 1.688-.07 4.947s.012 3.667.07 4.947c.077 1.674.518 3.162 1.706 4.35s2.676 1.629 4.35 1.706c1.28.058 1.688.07 4.947.07s3.667-.012 4.947-.07c1.674-.077 3.162-.518 4.35-1.706s1.629-2.676 1.706-4.35c.058-1.28.07-1.688.07-4.947s-.012-3.667-.07-4.947c-.077-1.674-.518-3.162-1.706-4.35s-2.676-1.629-4.35-1.706c-1.28-.058-1.688-.07-4.947-.07zM12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    
                 </div>
+
 
 
                 <button className="logoutbutton" onClick={handleLogout}>
