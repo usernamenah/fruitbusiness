@@ -563,6 +563,7 @@
     border: 5px solid rgb(249, 154, 30);
     
     border-radius: 20px;
+
     align-items: center;
     justify-content: center;
 }
@@ -601,6 +602,7 @@
     width:fit-content;
 }
 .fb2 {
+    font-size:30px;
     color: white;
     background-color: rgb(249, 154, 30);
     border-radius: 40px;
@@ -610,6 +612,7 @@
 }
 
 .fb3 {
+    font-size:30px;
     color: orange;
     background-color: rgb(251, 255, 18);
     width:fit-content;

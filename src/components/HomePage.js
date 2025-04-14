@@ -52,7 +52,7 @@ const Home = () => {
                         <header className="display-2">
 
                             <br></br>
-                          
+
                             <b>
                                 <div className="imagetext">
                                     <span className="blink">
@@ -216,44 +216,61 @@ const Home = () => {
                     }}
                 >
                     <div className="fruitbowl11">
-                        <br></br>
-                        <br></br>
+                        <br />
                         <div className="fb2">
-                            Normal fruit bowl
+                            Apple Juice
                         </div>
-                        <br></br>
-                        <br></br>
+                        <br />
 
                         <div className="fb2">
-                            Medium fruit bowl
+                            Orange Juice
                         </div>
-                        <br></br>
-                        <br></br>
+                        <br />
 
                         <div className="fb2">
-                            Premium fruit bowl
+                            Mango Juice
+                        </div>
+                        <br />
+
+                        <div className="fb2">
+                            Pineapple Juice
+                        </div>
+                        <br />
+
+                        <div className="fb2">
+                            Watermelon Juice
                         </div>
 
+                       
                     </div>
+
                     <div className="fruitbowl12">
                         <br></br>
-                        <br></br>
+                        <div className="fb2">
+                            Grape Juice
+                        </div>
+                        <br />
 
                         <div className="fb2">
-                            Normal fruit bowl
+                            Pomegranate Juice
                         </div>
-                        <br></br>
-                        <br></br>
+                        <br />
 
                         <div className="fb2">
-                            Medium fruit bowl
+                            Kiwi Juice
                         </div>
-                        <br></br>
-                        <br></br>
+                        <br />
 
                         <div className="fb2">
-                            Premium fruit bowl
+                            Papaya Juice
                         </div>
+                        <br />
+
+                        <div className="fb2">
+                            Mixed Fruit Juice
+                        </div>
+
+                       
 
                     </div>
                 </div>
@@ -268,22 +285,28 @@ const Home = () => {
                     <div className="fruitbowl2">
                         <br></br>
                         <br></br>
-
-                        <div className="fb3">
-                            Normal fruit bowl
-                        </div>
-                        <br></br>
-                        <br></br>
-
-                        <div className="fb3">
-                            Medium fruit bowl
-                        </div>
-                        <br></br>
+                        <b>
+                            <div className="fb3">
+                                ABC Juice
+                            </div></b>
                         <br></br>
 
-                        <div className="fb3">
-                            Premium fruit bowl
-                        </div>
+                        <b>
+                            <div className="fb3">
+                                Clelery Juice
+                            </div></b>
+                        <br></br>
+
+                        <b>
+                            <div className="fb3">
+                                Spinach Juice
+                            </div></b>
+                        <br></br>
+
+                        <b>
+                            <div className="fb3">
+                                Pineapple & turmeric juice
+                            </div></b>
                     </div>
                 </div>
                 {/* <div
@@ -358,7 +381,7 @@ const Home = () => {
 
                                     {/* Email */}
                                     <a
-                                        href="https://mail.google.com/mail/?view=cm&fs=1&to=example@email.com&su=Contact%20Request&body=Hi%2C%20I%20want%20to%20contact%20you"
+                                        href="https://mail.google.com/mail/?view=cm&fs=1&to=bloomingbowlfruits@gmail.com&su=Contact%20Request&body=Hi%2C%20I%20want%20to%20contact%20you"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="icon"

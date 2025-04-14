@@ -1,0 +1,99 @@
+.booking-container {
+    min-height: 100vh;
+    padding: 1rem;
+    background: linear-gradient(to bottom right,orange, YELLOW); /* pink-100 to blue-100 */
+}
+
+.booking-card {
+    max-width: max-content;
+    margin: 0 auto;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid #fed7aa; /* orange-200 */
+}
+
+.booking-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #f97316; /* pink-600 */
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #f97316; /* orange-600 */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.option-button {
+    padding: 1.25rem;
+    margin: 1.25rem;
+    border-radius: 9999px;
+    border: 1px solid #00000020;
+    transition: all 0.2s ease;
+    background-color: #fdba74; /* orange-300 */
+    color: black;
+    cursor: pointer;
+}
+
+.option-button:hover {
+    background-color: #fb923c; /* orange-400 */
+}
+
+.option-button.selected {
+    background-color: #7c2d12; /* orange-800 */
+    color: white;
+}
+
+.submit-button {
+    background-color: #22c55e; /* green-500 */
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    font-size: 1.125rem;
+    font-weight: 700;
+    transition: all 0.2s ease;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #16a34a; /* green-600 */
+}
+.option-container {
+    display: inline-flex;
+    align-items: center;
+    margin: 5px;
+  }
+  
+  .minus-button {
+    margin-left: -2rem;
+    background-color: #ff5c5c;
+    color: white;
+    border: none;
+    padding: 5px 8px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .minus-button:hover {
+    background-color: #e04545;
+  }
+
+  

@@ -1,101 +1,158 @@
-
 import React, { useState } from 'react';
+import './Booking.css';
+import { FaAppleAlt, FaLemon, FaSeedling } from 'react-icons/fa';
 
 const Booking = () => {
-    const [selectedFruitBowl, setSelectedFruitBowl] = useState('');
+    const [selectedbowl, setSelectedbowl] = useState([]);
     const [selectedJuices, setSelectedJuices] = useState([]);
     const [selectedColdPressed, setSelectedColdPressed] = useState([]);
 
+    const fruitbowl = ['Normal', 'Medium', 'Premium'];
     const fruits = ['Apple', 'Banana', 'Orange', 'Mango', 'Pineapple', 'Grapes', 'Watermelon'];
+    const coldfruits = ['ABC Juice', 'Celery Juice', 'Spinach Juice', 'Pineapple & Turmeric Juice'];
 
-    const handleJuiceSelect = (fruit) => {
-        setSelectedJuices((prev) => {
-            if (prev.includes(fruit)) {
-                return prev.filter(f => f !== fruit);
-            } else if (prev.length < 5) {
-                return [...prev, fruit];
-            } else {
-                return prev;
-            }
-        });
+    // Add handlers
+    const handleAdd = (item, setter, currentList) => {
+        if (currentList.length < 100) {
+            setter(prev => [...prev, item]);
+        }
     };
 
-    const handleColdPressedSelect = (fruit) => {
-        setSelectedColdPressed((prev) => {
-            if (prev.includes(fruit)) {
-                return prev.filter(f => f !== fruit);
-            } else if (prev.length < 3) {
-                return [...prev, fruit];
-            } else {
-                return prev;
-            }
-        });
+    const handleRemove = (item, setter, currentList) => {
+        const index = currentList.indexOf(item);
+        if (index !== -1) {
+            const newList = [...currentList];
+            newList.splice(index, 1);
+            setter(newList);
+        }
     };
 
     const handleSubmit = () => {
-        alert(`Order Placed!\nFruit Bowl: ${selectedFruitBowl}\nJuices: ${selectedJuices.join(', ')}\nCold Pressed Juices: ${selectedColdPressed.join(', ')}`);
+        const formatList = (list) => {
+            const countMap = {};
+            list.forEach(item => {
+                countMap[item] = (countMap[item] || 0) + 1;
+            });
+            return Object.entries(countMap).map(([item, count]) => `${item} (${count})`).join(', ');
+        };
+
+        alert(`🍓 Order Placed! 🍊\n\n🥣 Fruit Bowl: ${formatList(selectedbowl) || 'None'}\n🧃 Juices: ${formatList(selectedJuices) || 'None'}\n❄️ Cold Pressed Juices: ${formatList(selectedColdPressed) || 'None'}`);
+
+        logBowlData(selectedbowl);
+        logBowlData(selectedJuices);
+        logBowlData(selectedColdPressed);
     };
 
+    const logBowlData = (selected) => {
+        const countMap = {};
+        selected.forEach(item => {
+            countMap[item] = (countMap[item] || 0) + 1;
+        });
+        console.log('Selected Summary:');
+        for (const [key, value] of Object.entries(countMap)) {
+            console.log(`${key} -> ${value}`);
+        }
+    };
+
+    const getCount = (array, item) => array.filter(f => f === item).length;
+
     return (
-        <div className="min-h-screen p-6" style={{ backgroundColor: '#E0F7FA' }}>
-            <div className="max-w-2xl mx-auto bg-white p-6 rounded-2xl shadow-xl border border-yellow-300">
-                <h1 className="text-3xl font-bold text-orange-500 mb-6 text-center">Book Your Healthy Treat</h1>
+        <div className="booking-container">
+            <div className="booking-card">
+                <h1 className="booking-title">🍊🍉🍅🍌🥝 Book Your Healthy Treat 🥤🧃</h1>
 
-                <div className="mb-6">
-                    <h2 className="text-xl font-semibold text-yellow-600 mb-2">Fruit Bowls</h2>
-                    <div className="flex gap-4">
-                        {['Normal', 'Medium', 'Premium'].map((type) => (
-                            <button
-                                key={type}
-                                className={`px-4 py-2 rounded-full border ${selectedFruitBowl === type ? 'bg-orange-400 text-white' : 'bg-blue-100 text-black'}`}
-                                onClick={() => setSelectedFruitBowl(type)}
-                            >
-                                {type}
-                            </button>
-                        ))}
+                {/* Fruit Bowl */}
+                <div className="mb-8">
+                    <h2 className="section-title">🍉 Fruit Bowl </h2><br />
+                    <div className="button-group">
+                        {fruitbowl.map((bowl) => {
+                            const count = getCount(selectedbowl, bowl);
+                            return (
+                                <div key={bowl} className="option-container">
+                                    <button
+                                        className={`option-button ${count > 0 ? 'selected' : ''}`}
+                                        onClick={() => handleAdd(bowl, setSelectedbowl, selectedbowl)}
+                                    >
+                                        🥣 {bowl} {count > 0 && `(${count})`}
+                                    </button>
+                                    {count > 0 && (
+                                        <button
+                                            className="minus-button"
+                                            onClick={() => handleRemove(bowl, setSelectedbowl, selectedbowl)}
+                                        >
+                                            ➖
+                                        </button>
+                                    )}
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
 
-                <div className="mb-6">
-                    <h2 className="text-xl font-semibold text-yellow-600 mb-2">Juices (Choose up to 5 fruits)</h2>
-                    <div className="flex flex-wrap gap-3">
-                        {fruits.map((fruit) => (
-                            <button
-                                key={fruit}
-                                className={`px-4 py-2 rounded-full border ${selectedJuices.includes(fruit) ? 'bg-orange-400 text-white' : 'bg-blue-100 text-black'}`}
-                                onClick={() => handleJuiceSelect(fruit)}
-                            >
-                                {fruit}
-                            </button>
-                        ))}
+                {/* Juices */}
+                <div className="mb-8">
+                    <h2 className="section-title">🥤 Juices </h2><br />
+                    <div className="button-group">
+                        {fruits.map((fruit) => {
+                            const count = getCount(selectedJuices, fruit);
+                            return (
+                                <div key={fruit} className="option-container">
+                                    <button
+                                        className={`option-button ${count > 0 ? 'selected' : ''}`}
+                                        onClick={() => handleAdd(fruit, setSelectedJuices, selectedJuices)}
+                                    >
+                                        🧃 {fruit} {count > 0 && `(${count})`}
+                                    </button>
+                                    {count > 0 && (
+                                        <button
+                                            className="minus-button"
+                                            onClick={() => handleRemove(fruit, setSelectedJuices, selectedJuices)}
+                                        >
+                                            ➖
+                                        </button>
+                                    )}
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
 
-                <div className="mb-6">
-                    <h2 className="text-xl font-semibold text-yellow-600 mb-2">Cold Pressed Juices (Choose up to 3 fruits)</h2>
-                    <div className="flex flex-wrap gap-3">
-                        {fruits.map((fruit) => (
-                            <button
-                                key={fruit + '_cold'}
-                                className={`px-4 py-2 rounded-full border ${selectedColdPressed.includes(fruit) ? 'bg-orange-400 text-white' : 'bg-blue-100 text-black'}`}
-                                onClick={() => handleColdPressedSelect(fruit)}
-                            >
-                                {fruit}
-                            </button>
-                        ))}
+                {/* Cold Pressed Juices */}
+                <div className="mb-8">
+                    <h2 className="section-title">🧃 Cold Pressed Juices </h2><br />
+                    <div className="button-group">
+                        {coldfruits.map((fruit) => {
+                            const count = getCount(selectedColdPressed, fruit);
+                            return (
+                                <div key={fruit} className="option-container">
+                                    <button
+                                        className={`option-button ${count > 0 ? 'selected' : ''}`}
+                                        onClick={() => handleAdd(fruit, setSelectedColdPressed, selectedColdPressed)}
+                                    >
+                                        ❄️ {fruit} {count > 0 && `(${count})`}
+                                    </button>
+                                    {count > 0 && (
+                                        <button
+                                            className="minus-button "
+                                            onClick={() => handleRemove(fruit, setSelectedColdPressed, selectedColdPressed)}
+                                        >
+                                            ➖
+                                        </button>
+                                    )}
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
 
-                <div className="text-center">
-                    <button
-                        className="bg-yellow-400 text-white px-6 py-2 rounded-full hover:bg-yellow-500"
-                        onClick={handleSubmit}
-                    >
-                        Place Order
+                <div className="text-center mt-10">
+                    <button className="submit-button" onClick={handleSubmit}>
+                        ✅ Place Order
                     </button>
                 </div>
             </div>
         </div>
     );
 };
+
 export default Booking;
