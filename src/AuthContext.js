@@ -6,7 +6,7 @@ export const AuthProvider = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     useEffect(() => {
-        // Check token in localStorage when app starts
+        
         const token = localStorage.getItem("token");
         setIsAuthenticated(!!token);
     }, []);

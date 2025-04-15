@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './Booking.css';
-import { FaAppleAlt, FaLemon, FaSeedling } from 'react-icons/fa';
 
 const Booking = () => {
     const [selectedbowl, setSelectedbowl] = useState([]);
@@ -27,7 +26,7 @@ const Booking = () => {
         }
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         const formatList = (list) => {
             const countMap = {};
             list.forEach(item => {
@@ -37,22 +36,31 @@ const Booking = () => {
         };
 
         alert(`🍓 Order Placed! 🍊\n\n🥣 Fruit Bowl: ${formatList(selectedbowl) || 'None'}\n🧃 Juices: ${formatList(selectedJuices) || 'None'}\n❄️ Cold Pressed Juices: ${formatList(selectedColdPressed) || 'None'}`);
+        const token = localStorage.getItem("token");
 
-        logBowlData(selectedbowl);
-        logBowlData(selectedJuices);
-        logBowlData(selectedColdPressed);
+        try {
+            const response = await fetch("http://localhost:5000/order/place", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify({
+                bowl: selectedbowl,
+                juices: selectedJuices,
+                coldPressed: selectedColdPressed
+              }),
+              credentials: "include" 
+            });
+          
+            const data = await response.json();
+            console.log(data.message);
+          } catch (error) {
+            console.error("Error submitting order:", error);
+          }
+          
     };
 
-    const logBowlData = (selected) => {
-        const countMap = {};
-        selected.forEach(item => {
-            countMap[item] = (countMap[item] || 0) + 1;
-        });
-        console.log('Selected Summary:');
-        for (const [key, value] of Object.entries(countMap)) {
-            console.log(`${key} -> ${value}`);
-        }
-    };
+   
 
     const getCount = (array, item) => array.filter(f => f === item).length;
 

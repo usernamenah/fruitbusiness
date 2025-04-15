@@ -67,17 +67,3 @@ export default App;
 
 
 
-// import './App.css';
-// import Login from  "./components/LoginPage.js";
-// import Home from "./components/HomePage.js"
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <Login/>
-//       <Home/>
-//     </div>
-//   );
-// }
-
-// export default App;
