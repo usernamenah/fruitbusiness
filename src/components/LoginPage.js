@@ -1,7 +1,8 @@
 import React,{useState} from "react";
 import "./LoginPage.css";
-import 'ldrs/ring'
-import { grid } from 'ldrs'
+import 'ldrs/ring';
+import { grid } from 'ldrs';
+import axios from "axios";
 
 import { GoogleLogin } from "@react-oauth/google";
 // import { jwtDecode } from "jwt-decode";
@@ -10,37 +11,40 @@ import { useNavigate } from "react-router-dom";
 
 const LoginPage = ({ setIsAuth }) => {
   const navigate = useNavigate();
-  const [loader ,setLoader ] = useState(false);
+  const [loader, setLoader] = useState(false);
 
   const handleLoginSuccess = async (credentialResponse) => {
     try {
       setLoader(true); // Show loader right away
-  
-      const response = await fetch("https://fruitbusinessbackend.vercel.app/api/google-login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-        body: JSON.stringify({ token: credentialResponse.credential }),
-      });
-  
-      if (response.ok) {
+
+      const response = await axios.post(
+        "https://fruitbusinessbackend.vercel.app/api/google-login",
+        { token: credentialResponse.credential },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+
+      // Axios doesn't need `response.ok` — just check the status or assume success
+      if (response.status === 200) {
         setIsAuth(true);
-        
-        
+
         setTimeout(() => {
           navigate("/home");
-        }, 5000); 
-  
+        }, 5000);
       } else {
         setLoader(false); // Stop loader if login fails
         console.error("Login failed:", response);
       }
-  
     } catch (error) {
       setLoader(false);
       console.error("Error during login:", error);
     }
   };
+
   grid.register()
 
   if (loader) {
