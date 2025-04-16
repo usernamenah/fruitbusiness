@@ -22,6 +22,7 @@ const LoginPage = ({ setIsAuth }) => {
         credentials: "include",
         body: JSON.stringify({ token: credentialResponse.credential }),
       });
+      console.log("Google ID Token:", token);
   
       if (response.ok) {
         setIsAuth(true);

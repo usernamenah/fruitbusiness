@@ -39,7 +39,7 @@ const Booking = () => {
         };
 
         alert(`🍓 Order Placed! 🍊\n\n🥣 Fruit Bowl: ${formatList(selectedbowl) || 'None'}\n🧃 Juices: ${formatList(selectedJuices) || 'None'}\n❄️ Cold Pressed Juices: ${formatList(selectedColdPressed) || 'None'}`);
-
+``
         try {
             const response = await fetch("https://fruitbusinessbackend.vercel.app/order/place", {
               method: "POST",
