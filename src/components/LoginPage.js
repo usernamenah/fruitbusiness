@@ -20,7 +20,7 @@ const LoginPage = ({ setIsAuth }) => {
       const response = await axios.post(
         "https://fruitbusinessbackend.vercel.app/api/google-login",{
           withCredentials: true,
-        }
+        },
         { token: credentialResponse.credential },
         {
           headers: {
