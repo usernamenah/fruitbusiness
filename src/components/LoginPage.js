@@ -16,7 +16,7 @@ const LoginPage = ({ setIsAuth }) => {
     try {
       setLoader(true); // Show loader right away
   
-      const response = await fetch("http://localhost:5000/api/google-login", {
+      const response = await fetch("https://fruitbusinessbackend.vercel.app/api/google-login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
