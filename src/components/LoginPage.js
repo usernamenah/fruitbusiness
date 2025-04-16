@@ -18,7 +18,9 @@ const LoginPage = ({ setIsAuth }) => {
       setLoader(true); // Show loader right away
 
       const response = await axios.post(
-        "https://fruitbusinessbackend.vercel.app/api/google-login",
+        "https://fruitbusinessbackend.vercel.app/api/google-login",{
+          withCredentials: true,
+        }
         { token: credentialResponse.credential },
         {
           headers: {
