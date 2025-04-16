@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import './Booking.css';
+import { useNavigate } from "react-router-dom";
 
 const Booking = () => {
+    const navigate = useNavigate();
+
     const [selectedbowl, setSelectedbowl] = useState([]);
     const [selectedJuices, setSelectedJuices] = useState([]);
     const [selectedColdPressed, setSelectedColdPressed] = useState([]);
@@ -36,10 +39,9 @@ const Booking = () => {
         };
 
         alert(`🍓 Order Placed! 🍊\n\n🥣 Fruit Bowl: ${formatList(selectedbowl) || 'None'}\n🧃 Juices: ${formatList(selectedJuices) || 'None'}\n❄️ Cold Pressed Juices: ${formatList(selectedColdPressed) || 'None'}`);
-        const token = localStorage.getItem("token");
 
         try {
-            const response = await fetch("http://localhost:5000/order/place", {
+            const response = await fetch("https://fruitbusinessbackend.vercel.app/order/place", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json"
@@ -58,6 +60,23 @@ const Booking = () => {
             console.error("Error submitting order:", error);
           }
           
+    };
+    const handleLogout = async () => {
+        try {
+            // Call backend logout endpoint
+            const response = await fetch("https://fruitbusinessbackend.vercel.app/logout", {
+                method: "POST",
+                credentials: "include" // Necessary for cookie clearing
+            });
+
+            if (response.ok) {
+                // Client-side cleanup and redirect
+                navigate("/login");
+                window.location.reload(); // Ensure auth state is cleared
+            }
+        } catch (error) {
+            console.error("Logout error:", error);
+        }
     };
 
    
@@ -159,6 +178,9 @@ const Booking = () => {
                     </button>
                 </div>
             </div>
+            <button className="logoutbutton" onClick={handleLogout}>
+                    logout
+                </button>
         </div>
     );
 };
