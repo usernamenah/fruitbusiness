@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import "./LoginPage.css";
 import 'ldrs/ring';
 import { grid } from 'ldrs';
@@ -18,17 +18,17 @@ const LoginPage = ({ setIsAuth }) => {
       setLoader(true); // Show loader right away
 
       const response = await axios.post(
-  "https://fruitbusinessbackend.vercel.app/api/google-login",
-  {
-    token: credentialResponse.credential
-  },
-  {
-    headers: {
-      "Content-Type": "application/json"
-    },
-    withCredentials: true
-  }
-);
+        "http://localhost:5000/api/google-login",
+        {
+          token: credentialResponse.credential
+        },
+        {
+          headers: {
+            "Content-Type": "application/json"
+          },
+          withCredentials: true
+        }
+      );
 
       // Axios doesn't need `response.ok` — just check the status or assume success
       if (response.status === 200) {

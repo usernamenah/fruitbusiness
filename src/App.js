@@ -17,11 +17,11 @@ const App = () => {
                 const response = await fetch("https://fruitbusinessbackend.vercel.app/check-auth", {
                     credentials: 'include',
                 });
-                // if (response.ok) {
-                //     setIsAuth(true);
-                // } else {
-                //     setIsAuth(false);
-                // }
+                if (response.ok) {
+                    setIsAuth(true);
+                } else {
+                    setIsAuth(false);
+                }
                 setIsAuth(response.ok);
             } catch (error) {
                 setIsAuth(false);
