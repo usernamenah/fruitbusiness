@@ -18,17 +18,17 @@ const LoginPage = ({ setIsAuth }) => {
       setLoader(true); // Show loader right away
 
       const response = await axios.post(
-        "https://fruitbusinessbackend.vercel.app/api/google-login",{
-          withCredentials: true,
-        },
-        { token: credentialResponse.credential },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          withCredentials: true,
-        }
-      );
+  "https://fruitbusinessbackend.vercel.app/api/google-login",
+  {
+    token: credentialResponse.credential
+  },
+  {
+    headers: {
+      "Content-Type": "application/json"
+    },
+    withCredentials: true
+  }
+);
 
       // Axios doesn't need `response.ok` — just check the status or assume success
       if (response.status === 200) {
