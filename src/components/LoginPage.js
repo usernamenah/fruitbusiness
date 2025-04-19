@@ -17,6 +17,7 @@ const LoginPage = ({ setIsAuth }) => {
     try {
       setLoader(true); // Show loader right away
 
+      alert(credentialResponse.credential);
       const response = await axios.post(
         "http://localhost:5000/api/google-login",
         {
