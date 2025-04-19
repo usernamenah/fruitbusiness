@@ -38,27 +38,28 @@ const Booking = () => {
             return Object.entries(countMap).map(([item, count]) => `${item} (${count})`).join(', ');
         };
 
-        alert(`🍓 Order Placed! 🍊\n\n🥣 Fruit Bowl: ${formatList(selectedbowl) || 'None'}\n🧃 Juices: ${formatList(selectedJuices) || 'None'}\n❄️ Cold Pressed Juices: ${formatList(selectedColdPressed) || 'None'}`);
-
+        
         try {
             const response = await fetch("https://fruitbusinessbackend.vercel.app/order/place", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json"
-              },
-              body: JSON.stringify({
-                bowl: selectedbowl,
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    bowl: selectedbowl,
                 juices: selectedJuices,
                 coldPressed: selectedColdPressed
-              }),
-              credentials: "include" 
-            });
-          
-            const data = await response.json();
+            }),
+            credentials: "include" 
+        });
+        
+        const data = await response.json();
             console.log(data.message);
-          } catch (error) {
+        } catch (error) {
             console.error("Error submitting order:", error);
-          }
+        }
+        alert(`🍓 Order Placed! 🍊\n\n🥣 Fruit Bowl: ${formatList(selectedbowl) || 'None'}\n🧃 Juices: ${formatList(selectedJuices) || 'None'}\n❄️ Cold Pressed Juices: ${formatList(selectedColdPressed) || 'None'}`);
+        navigate("/home");
           
     };
     const handleLogout = async () => {
