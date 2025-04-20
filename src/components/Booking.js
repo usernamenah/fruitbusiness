@@ -59,7 +59,7 @@ const Booking = () => {
             console.error("Error submitting order:", error);
         }
         alert(`🍓 Order Placed! 🍊\n\n🥣 Fruit Bowl: ${formatList(selectedbowl) || 'None'}\n🧃 Juices: ${formatList(selectedJuices) || 'None'}\n❄️ Cold Pressed Juices: ${formatList(selectedColdPressed) || 'None'}`);
-        navigate("/home");
+        navigate("/profilecustomer");
           
     };
     const handleLogout = async () => {

@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import LoginPage from "./components/LoginPage.js";
 import HomePage from "./components/HomePage.js";
 import BookingPage from "./components/Booking.js";
+import ProfilePageforCustomer from "./components/ProfileCustomer.js";
 import 'ldrs/ring'
 import { grid } from 'ldrs'
 // import Cookies from "js-cookie";
@@ -55,6 +56,10 @@ const App = () => {
                 <Route
                     path="/book"
                     element={isAuth ? <BookingPage/> : <Navigate to="/login" />}
+                />
+                <Route
+                    path="/profilecustomer"
+                    element={isAuth ? <ProfilePageforCustomer/> : <Navigate to="/home" />}
                 />
                 
                 <Route path="*" element={<Navigate to="/login" />} />
