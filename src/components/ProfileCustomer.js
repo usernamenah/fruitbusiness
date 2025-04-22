@@ -1,53 +1,61 @@
-// UserProfile.js
-
-import React from "react";
-// import { Card, CardContent } from "@/components/ui/card";
-// import { FaAppleAlt, FaBanana, FaUser } from "react-icons/fa";
-// import { PiPineappleFill } from "react-icons/pi";
-
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import "./ProfileCustomer.css";
 
 const UserProfile = () => {
-  const user = {
-    name: "Fruit Lover",
-    username: "juicy_bites",
-    favoriteFruits: ["Apple", "Banana", "Pineapple"],
-    bio: "Squeezing the best out of life, one fruit at a time 🍓🍍🍌",
-    avatar: "https://i.imgur.com/6VBx3io.png", // Example avatar
-  };
+  const [user, setUser] = useState(null);       // holds the user data
+  const [loading, setLoading] = useState(true); // loading state
+  const [error, setError] = useState("");        // error state
 
-  const fruitIcons = {
-    // Apple: <FaAppleAlt className="text-red-400 text-xl" />,
-    // Banana: <FaBanana className="text-yellow-300 text-xl" />,
-    // Pineapple: <PiPineappleFill className="text-yellow-500 text-xl" />,
-  };
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const email = "user@example.com"; // Replace with actual user email (from login or context)
+        const response = await axios.get("https://fruitbusinessbackend.vercel.app/api/user_info");
+
+        const data = response.data;
+
+        // Create a similar structure to what your component expects
+        const userData = {
+          name: data.name,
+          username: data.email.split("@")[0], // fallback username from email
+          favoriteFruits: ["🍎 Apple", "🍌 Banana", "🍍 Pineapple"], // can be customized
+          bio: "Squeezing the best out of life, one fruit at a time 🍓🍍🍌",
+          avatar: data.picture || "https://i.imgur.com/6VBx3io.png"
+        };
+
+        setUser(userData);
+      } catch (err) {
+        setError("Failed to fetch user info");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUserData();
+  }, []);
+
+  if (loading) return <div>Loading profile...</div>;
+  if (error) return <div style={{ color: "red" }}>{error}</div>;
 
   return (
-    <div className="min-h-screen bg-[#121212] text-white flex justify-center items-center p-6">
-      {/* <Card className="bg-[#1f1f1f] border-none shadow-2xl rounded-2xl w-full max-w-md">
-        <CardContent className="p-6">
-          <div className="flex flex-col items-center space-y-4">
-            <img
-              src={user.avatar}
-              alt="User Avatar"
-              className="w-24 h-24 rounded-full border-4 border-pink-400"
-            />
-            <h2 className="text-2xl font-bold">{user.name}</h2>
-            <p className="text-sm text-gray-400">@{user.username}</p>
-            <p className="text-center text-base mt-2">{user.bio}</p>
-            <div className="mt-4 flex flex-wrap justify-center gap-4">
-              {user.favoriteFruits.map((fruit) => (
-                <div
-                  key={fruit}
-                  className="bg-[#2a2a2a] p-3 rounded-xl flex items-center gap-2 shadow-inner"
-                >
-                  {fruitIcons[fruit] || <FaUser />}
-                  <span className="text-sm">{fruit}</span>
-                </div>
-              ))}
-            </div>
+    <div className="profile-container">
+      <div className="profile-card">
+        <img src={user.avatar} alt="Avatar" className="profile-avatar" />
+        <h2 className="profile-name">{user.name}</h2>
+        <p className="profile-username">@{user.username}</p>
+        <p className="profile-bio">{user.bio}</p>
+        <div className="fruit-section">
+          <h3 className="fruit-title">Favorite Fruits</h3>
+          <div className="fruit-list">
+            {user.favoriteFruits.map((fruit, index) => (
+              <div key={index} className="fruit-item">
+                {fruit}
+              </div>
+            ))}
           </div>
-        </CardContent>
-      </Card> */}
+        </div>
+      </div>
     </div>
   );
 };
