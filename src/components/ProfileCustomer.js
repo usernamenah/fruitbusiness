@@ -10,7 +10,7 @@ const UserProfile = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const email = "user@example.com"; // Replace with actual user email (from login or context)
+        
         const response = await axios.get("https://fruitbusinessbackend.vercel.app/api/user_info");
 
         const data = response.data;
