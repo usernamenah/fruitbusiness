@@ -11,8 +11,9 @@ const UserProfile = () => {
     const fetchUserData = async () => {
       try {
         
-        const response = await axios.get("https://fruitbusinessbackend.vercel.app/api/user_info");
-
+        const response = await axios.get("https://fruitbusinessbackend.vercel.app/api/user_info", {
+          withCredentials: true
+        });
         const data = response.data;
 
         // Create a similar structure to what your component expects
