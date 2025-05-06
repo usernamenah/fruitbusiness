@@ -74,3 +74,47 @@
     background-color: #3a3a3a;
   }
   
+  .main-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .div1, .div2, .div3 {
+    flex: 1 1 30%;
+    min-width: 280px;
+  }
+  
+  .profile-card, .footer {
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    background-color: white;
+  }
+  
+  /* Make avatar circle */
+  .profile-avatar {
+    width: 100px;
+    border-radius: 50%;
+  }
+  
+  /* Example additional styling */
+  .fruit-item {
+    padding: 5px 0;
+  }
+  
+  .footer .icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  /* Responsive behavior */
+  @media (max-width: 768px) {
+    .div1, .div2, .div3 {
+      flex: 1 1 100%;
+    }
+  }
+  

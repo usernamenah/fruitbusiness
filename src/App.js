@@ -6,6 +6,9 @@ import ProfilePageforCustomer from "./components/ProfileCustomer.js";
 import 'ldrs/ring'
 import { grid } from 'ldrs'
 // import Cookies from "js-cookie";
+
+
+
 import { useState, useEffect } from "react";
 
 const App = () => {
