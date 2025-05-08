@@ -40,7 +40,7 @@ const Booking = () => {
 
         
         try {
-            const response = await fetch("https://fruitbusinessbackend.vercel.app/order/place", {
+            const response = await fetch("http://localhost:5000/order/place", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -65,7 +65,7 @@ const Booking = () => {
     const handleLogout = async () => {
         try {
             // Call backend logout endpoint
-            const response = await fetch("https://fruitbusinessbackend.vercel.app/logout", {
+            const response = await fetch("http://localhost:5000/logout", {
                 method: "POST",
                 credentials: "include" // Necessary for cookie clearing
             });

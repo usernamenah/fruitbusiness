@@ -82,11 +82,18 @@
     padding: 20px;
   }
   
-  .div1, .div2, .div3 {
+  .div1, .div2 , .div3{
     flex: 1 1 30%;
-    min-width: 280px;
+    min-width: 250px;
   }
-  
+  .div2{
+    
+    background-color: #dddddd;
+  }
+  .footer-content{
+    color: #3a3a3a;
+
+  }
   .profile-card, .footer {
     padding: 20px;
     border-radius: 12px;
@@ -118,3 +125,62 @@
     }
   }
   
+  .logoutbutton{
+    position: fixed;
+    right: 1rem;
+    color: white;
+    border-radius: 5px;
+    border: 2px solid rgb(47, 255, 0);
+
+    transform: scale(1);
+    top: 2rem;
+    background-color: red;
+    transition: all  0.3s ease-in-out;
+}
+.logoutbutton:hover{
+    transform: scale(1.2);
+}
+
+.feedback-input {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  border: 1px solid #555;
+  border-radius: 8px;
+  padding: 12px 16px;
+  width: 100%;
+   max-width: 100%;         /* Allow full width inside containers */
+  min-width: 150px;        /* Smaller minimum for mobile */
+  resize: vertical; 
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.feedback-input::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+.feedback-input:focus {
+  border-color: #ffc400;
+  box-shadow: 0 0 20px #ffc400;
+}
+
+
+.yellow-button {
+  background-color: #ffc400;       /* Bright yellow */
+  color: #000000;                  /* Black text */
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(255, 196, 0, 0.5); /* Yellow shadow */
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.yellow-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(255, 196, 0, 0.7);
+}
+
