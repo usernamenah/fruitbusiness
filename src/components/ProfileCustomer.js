@@ -15,7 +15,6 @@ const UserProfile = () => {
 
   const handleFeedbackChange = (event) => {
     setFeedback(event.target.value);
-    console.log("Submitted feedback:", feedback);
   };
 
   const submitFeedback = async () => {
