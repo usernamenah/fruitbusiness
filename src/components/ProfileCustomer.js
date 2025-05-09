@@ -12,27 +12,51 @@ const UserProfile = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [feedback, setFeedback] = useState("");
+  const [isVisible, setIsVisible] = useState(true);
+
+  const handleClose = () => {
+    setIsVisible(false);
+  };
+   const handleOpen = () => {
+    setIsVisible(true);
+    
+  };
 
   const handleFeedbackChange = (event) => {
     setFeedback(event.target.value);
   };
 
   const submitFeedback = async () => {
-    alert(feedback);
+    if (!feedback || feedback.trim() === "") {
+      alert("Please enter feedback before submitting.");
+      return;
+    }
+
     try {
       const response = await fetch("http://localhost:5000/user/postfeedback", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        credentials: "include", 
+        credentials: "include",
         body: JSON.stringify({ feedback }),
       });
-  
+
       const result = await response.json();
-      console.log(result.message);
+
+      if (response.ok) {
+        alert(result.message);
+        setFeedback("");
+        console.log(result.message);
+      } else {
+        alert(result.message || "Something went wrong.");
+        console.error("Server responded with error:", result);
+      }
     } catch (err) {
       console.error("Failed to submit feedback", err);
+      alert("Network error. Please try again later.");
     }
   };
+
+  
 
 
 
@@ -55,6 +79,8 @@ const UserProfile = () => {
       console.error("Logout error:", error);
     }
   };
+
+
 
 
   useEffect(() => {
@@ -84,6 +110,7 @@ const UserProfile = () => {
     fetchUserData();
   }, []);
 
+
   if (loading) return <div>Loading profile...</div>;
   if (error) return <div style={{ color: "red" }}>{error}</div>;
 
@@ -107,12 +134,39 @@ const UserProfile = () => {
                 ))}
               </div>
             </div>
+            <br></br>
+            <br></br>
+          <div className="profile-card-previousbooked" role="button" tabIndex={0} onClick={handleOpen}>
+            previousbooked
+          </div>
           </div>
         </div>
 
+
         {/* DIV2 */}
         <div className="div2">
-          {/* You can add your own content/code here */}
+          <div className="profile-card" >
+            mkwhrc
+            aenjkvn
+            post 1
+
+          </div>
+          <div className="profile-card" >
+            mkwhrc
+            aenjkvn
+            post 1
+          </div>
+          <div className="profile-card" >
+            mkwhrc
+            aenjkvn
+            post 1
+          </div>
+          <div className="profile-card" >
+            mkwhrc
+            aenjkvn
+            post 1
+          </div>
+
         </div>
 
         {/* DIV3 */}
@@ -122,11 +176,11 @@ const UserProfile = () => {
               <div className="footer-content">
                 <div className="delivery">
                   <h3>We Deliver To:</h3>
-                  <p>Keshav Nagar , Magarpatta , Amanora</p>
+                  <p> <a href="https://maps.app.goo.gl/yu2swTiDaW7vVWDR9" className="maplinks" target="_blank" rel="noreferrer">Keshav Nagar</a>, <a href="https://maps.app.goo.gl/vWRNFmvE1XGyxZUV8" className="maplinks" target="_blank" rel="noreferrer">Magarpatta</a> , <a href="https://maps.app.goo.gl/s6cVx7MvTDQkpo3h7" className="maplinks" rel="noreferrer" target="_blank">Amanora</a></p>
                 </div>
                 <div className="contact">
                   <h3>Contact Us</h3>
-                  <p>Phone: 9-575-675-775</p>
+                  <a href="tel:+919575675775" className="phone-link"> 📞 Phone: 9-575-675-775</a>
                   <div className="icons">
                     {/* WhatsApp */}
                     <a href="https://wa.me/919575675775?text=Hi%2C%20I%20want%20to%20contact%20you" target="_blank" rel="noopener noreferrer" className="icon" title="WhatsApp Us">
@@ -153,6 +207,7 @@ const UserProfile = () => {
               </div>
             </div>
           </div>
+          <br></br>
 
           <div>
             <div className="footer">
@@ -169,12 +224,32 @@ const UserProfile = () => {
 
             </div>
 
+
           </div>
         </div>
       </div>
       <button className="logoutbutton" onClick={handleLogout}>
         logout
       </button>
+      <div
+        className="previousbooked"
+        style={{
+          transform: isVisible ? "scale(1)" : "scale(0)",
+          transition: "transform 0.3s ease-in-out",
+          transformOrigin: "top right",
+        }}
+      >
+
+        <div className="closspreviousbookedtab" title="Close" onClick={handleClose}>
+          &times;
+        </div>
+        wjkrvw
+        qerv<br></br>
+        qerv<br></br>
+        qerv<br></br>
+
+      </div>
+
     </>
   );
 };

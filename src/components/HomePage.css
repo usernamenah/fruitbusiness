@@ -665,3 +665,36 @@
 .logoutbutton:hover{
     transform: scale(1.2);
 }
+
+/* links */
+
+.maplinks {
+  color: #00acee;           /* Bright link color for dark theme */
+  text-decoration: none;    /* Remove underline */
+  cursor: pointer;          /* Show pointer on hover */
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.maplinks:hover {
+  color: #66d9ef;           /* Lighter color on hover */
+}
+
+.phone-link {
+  display: inline-block;
+  color: #2196f3;             /* Blue theme */
+  background-color: #0d1b2a;  /* Dark blue background */
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.phone-link:hover {
+  background-color: #1e3a5f;
+  transform: scale(1.05);
+  text-decoration: none;
+}
