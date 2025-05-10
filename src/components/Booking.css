@@ -112,3 +112,50 @@
 .logoutbutton:hover{
     transform: scale(1.2);
 }
+
+
+/* recommendations css */
+
+.recomend {
+    visibility: visible;
+}
+.rerecomend {
+    visibility: hidden;
+}
+@media (max-width: 1299px) {
+    .recomend {
+        visibility: hidden;
+    }
+    .rerecomend {
+        visibility: visible;
+    }
+}
+
+
+.totheleft{
+    position: absolute;
+    left: 5%;
+}
+
+/* homebutton css*/
+
+.homebutton {
+    position: fixed;
+    left: 2px;
+    top: 2px;
+  background-color: #1f2937; /* dark gray */
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.homebutton:hover {
+  background-color: #374151; /* slightly lighter */
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}

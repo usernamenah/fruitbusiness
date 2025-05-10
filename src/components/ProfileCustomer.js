@@ -172,26 +172,10 @@ const UserProfile = () => {
         {/* DIV2 */}
         <div className="div2">
           <div className="profile-card" >
-            mkwhrc
-            aenjkvn
-            post 1
+           UPDATE IS GONNA COME WHERE YOU CAN POST YOUR EXPERIENCE OF OUR SERVICE AND PRODUCTS
 
           </div>
-          <div className="profile-card" >
-            mkwhrc
-            aenjkvn
-            post 1
-          </div>
-          <div className="profile-card" >
-            mkwhrc
-            aenjkvn
-            post 1
-          </div>
-          <div className="profile-card" >
-            mkwhrc
-            aenjkvn
-            post 1
-          </div>
+          
 
         </div>
 
