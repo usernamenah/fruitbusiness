@@ -9,17 +9,19 @@ const UserProfile = () => {
   const navigate = useNavigate();
 
   const [user, setUser] = useState(null);
+  const [orders, setOrders] = useState([]);
+  const [loadingorder, setLoadingorder] = useState(true);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [feedback, setFeedback] = useState("");
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
 
   const handleClose = () => {
     setIsVisible(false);
   };
-   const handleOpen = () => {
+  const handleOpen = () => {
     setIsVisible(true);
-    
+
   };
 
   const handleFeedbackChange = (event) => {
@@ -56,7 +58,7 @@ const UserProfile = () => {
     }
   };
 
-  
+
 
 
 
@@ -79,6 +81,8 @@ const UserProfile = () => {
       console.error("Logout error:", error);
     }
   };
+
+
 
 
 
@@ -110,6 +114,28 @@ const UserProfile = () => {
     fetchUserData();
   }, []);
 
+  useEffect(() => {
+    const fetchUserOrders = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/order/getpreviousorders", {
+          withCredentials: true,
+        });
+        const data = response.data;
+
+        setOrders(response.data);
+        console.log(data);
+      } catch (err) {
+        console.log("Failed to fetch user orders");
+      } finally {
+        setLoadingorder(false);
+      }
+    };
+
+    fetchUserOrders();
+  }, []);
+
+
+
 
   if (loading) return <div>Loading profile...</div>;
   if (error) return <div style={{ color: "red" }}>{error}</div>;
@@ -136,9 +162,9 @@ const UserProfile = () => {
             </div>
             <br></br>
             <br></br>
-          <div className="profile-card-previousbooked" role="button" tabIndex={0} onClick={handleOpen}>
-            previousbooked
-          </div>
+            <div className="profile-card-previousbooked" role="button" tabIndex={0} onClick={handleOpen}>
+              previousbooked
+            </div>
           </div>
         </div>
 
@@ -234,7 +260,7 @@ const UserProfile = () => {
       <div
         className="previousbooked"
         style={{
-          transform: isVisible ? "scale(1)" : "scale(0)",
+          transform: isVisible ? "scale(1)" : "scale(0.03)",
           transition: "transform 0.3s ease-in-out",
           transformOrigin: "top right",
         }}
@@ -243,10 +269,37 @@ const UserProfile = () => {
         <div className="closspreviousbookedtab" title="Close" onClick={handleClose}>
           &times;
         </div>
-        wjkrvw
-        qerv<br></br>
-        qerv<br></br>
-        qerv<br></br>
+
+
+        <div className="order-history-container">
+      <h2>Previous Orders</h2>
+
+      {loadingorder ? (
+        <div>Loading orders...</div>
+      ) : orders.length === 0 ? (
+        <div>No orders found.</div>
+      ) : (
+        <div className="order-scroll">
+          {orders.map((order, index) => (
+            <div className="order-card" key={order._id || index}>
+              
+              <p><strong>Date:</strong> {new Date(order.createdAt).toLocaleString()}</p>
+
+              {order.bowl.length > 0 && (
+                <p><strong>Bowl:</strong> {order.bowl.join(", ")}</p>
+              )}
+              {order.juices.length > 0 && (
+                <p><strong>Juices:</strong> {order.juices.join(", ")}</p>
+              )}
+              {order.coldPressed.length > 0 && (
+                <p><strong>Cold Pressed:</strong> {order.coldPressed.join(", ")}</p>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+
 
       </div>
 
