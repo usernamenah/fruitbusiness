@@ -26,7 +26,7 @@ const Home = () => {
     const handleLogout = async () => {
         try {
             // Call backend logout endpoint
-            const response = await fetch("http://localhost:5000/logout", {
+            const response = await fetch("https://fruitbusinessbackend.vercel.app/logout", {
                 method: "POST",
                 credentials: "include" // Necessary for cookie clearing
             });
