@@ -392,3 +392,49 @@
   background-color: #c92a38;
   transform: scale(1.1);
 }
+/* homebutton css*/
+
+.homebutton {
+    position: fixed;
+    left: 2px;
+    top: 2px;
+  background-color: #1f2937; /* dark gray */
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.homebutton:hover {
+  background-color: #374151; /* slightly lighter */
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+.gotobookingsite {
+  background-color: #1e1e2f;
+  color: #ffffff;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 12px 28px;
+  border: none;
+  margin-top: 1rem;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.gotobookingsite:hover {
+  background-color: #29293d;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  transform: translateY(-4px);
+}
+

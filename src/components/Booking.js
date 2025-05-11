@@ -11,6 +11,9 @@ const Booking = () => {
     const [activeTab, setActiveTab] = useState(0);
 
     const fruitbowl = ['Normal', 'Medium', 'Premium'];
+    const specialitems = ['sweet', 'putharekulu ( 250gm )', 'putharekulu ( 500gm )'];
+    const specialpack = ['sweet', 'putharekulu ( 250gm )', 'putharekulu ( 500gm )'];
+    const specialvillagefood = ['sweet', 'putharekulu ( 250gm )', 'putharekulu ( 500gm )'];
     const fruits = ['Apple', 'Banana', 'Orange', 'Mango', 'Pineapple', 'Grapes', 'Watermelon'];
     const coldfruits = ['ABC Juice', 'Celery Juice', 'Spinach Juice', 'Pineapple & Turmeric Juice'];
 
@@ -41,7 +44,7 @@ const Booking = () => {
 
 
         try {
-            const response = await fetch("https://fruitbusinessbackend.vercel.app/order/place", {
+            const response = await fetch("http://localhost:5000/order/place", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -66,7 +69,7 @@ const Booking = () => {
     const handleLogout = async () => {
         try {
             // Call backend logout endpoint
-            const response = await fetch("https://fruitbusinessbackend.vercel.app/logout", {
+            const response = await fetch("http://localhost:5000/logout", {
                 method: "POST",
                 credentials: "include" // Necessary for cookie clearing
             });
@@ -234,13 +237,13 @@ const Booking = () => {
                                             <div className="booking-container">
                                                 <div className="booking-card">
                                                     <h1 className="booking-title">🍊🍉🍅🍌🥝 Book Your SPEACIAL Healthy Treat 🥤🧃</h1>
-                                                    <h1 className="booking-title">we sill update the items too</h1>
+                                                    <h1 className="booking-title">we will update the items too</h1>
 
                                                     {/* Fruit Bowl */}
                                                     <div className="mb-8">
-                                                        <h2 className="section-title">🍉 Fruit Bowl </h2><br />
+                                                        <h2 className="section-title">SPECIAL ITEMS  </h2><br />
                                                         <div className="button-group">
-                                                            {fruitbowl.map((bowl) => {
+                                                            {specialitems.map((bowl) => {
                                                                 const count = getCount(selectedbowl, bowl);
                                                                 return (
                                                                     <div key={bowl} className="option-container">
@@ -266,9 +269,9 @@ const Booking = () => {
 
                                                     {/* Juices */}
                                                     <div className="mb-8">
-                                                        <h2 className="section-title">🥤 Juices </h2><br />
+                                                        <h2 className="section-title"> SPECIAL PACKS </h2><br />
                                                         <div className="button-group">
-                                                            {fruits.map((fruit) => {
+                                                            {specialpack.map((fruit) => {
                                                                 const count = getCount(selectedJuices, fruit);
                                                                 return (
                                                                     <div key={fruit} className="option-container">
@@ -294,9 +297,9 @@ const Booking = () => {
 
                                                     {/* Cold Pressed Juices */}
                                                     <div className="mb-8">
-                                                        <h2 className="section-title">🧃 Cold Pressed Juices </h2><br />
+                                                        <h2 className="section-title">SPECIAL VILLAGE FOOD </h2><br />
                                                         <div className="button-group">
-                                                            {coldfruits.map((fruit) => {
+                                                            {specialvillagefood.map((fruit) => {
                                                                 const count = getCount(selectedColdPressed, fruit);
                                                                 return (
                                                                     <div key={fruit} className="option-container">
@@ -342,7 +345,7 @@ const Booking = () => {
                     <div className='col-3'>
                         <div className='recomend'>
 
-                            <div className="recommendations fixed top-20 right-5 bg-gray-900 text-white  rounded-lg shadow-lg z-50 w-[250px] h-[250px] sm:w-[300px] sm:h-[300px] md:w-[400px] md:h-[400px]">
+                            <div className="recommendations  top-20 right-5 bg-gray-900 text-white  rounded-lg shadow-lg z-50 w-[250px] h-[250px] sm:w-[300px] sm:h-[300px] md:w-[400px] md:h-[400px]">
                                 <h3 className="text-xl font-bold mb-4">Recommendations</h3>
                                 <p className="text-sm">This is where the recommendations would go.</p>
                             </div>
@@ -357,6 +360,12 @@ const Booking = () => {
             <button className="homebutton" onClick={() => navigate("/home")}>
                 Home
             </button>
+
+            <button className="booktoprofilebutton" onClick={() => navigate("/profilecustomer")}>
+                profile
+            </button>
+
+
 
 
         </>

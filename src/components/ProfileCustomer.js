@@ -35,7 +35,7 @@ const UserProfile = () => {
     }
 
     try {
-      const response = await fetch("https://fruitbusinessbackend.vercel.app/user/postfeedback", {
+      const response = await fetch("http://localhost:5000/user/postfeedback", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -67,7 +67,7 @@ const UserProfile = () => {
   const handleLogout = async () => {
     try {
       // Call backend logout endpoint
-      const response = await fetch("https://fruitbusinessbackend.vercel.app/logout", {
+      const response = await fetch("http://localhost:5000/logout", {
         method: "POST",
         credentials: "include" // Necessary for cookie clearing
       });
@@ -90,7 +90,7 @@ const UserProfile = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get("https://fruitbusinessbackend.vercel.app/api/user_info", {
+        const response = await axios.get("http://localhost:5000/api/user_info", {
           withCredentials: true,
         });
         const data = response.data;
@@ -117,7 +117,7 @@ const UserProfile = () => {
   useEffect(() => {
     const fetchUserOrders = async () => {
       try {
-        const response = await axios.get("https://fruitbusinessbackend.vercel.app/order/getpreviousorders", {
+        const response = await axios.get("http://localhost:5000/order/getpreviousorders", {
           withCredentials: true,
         });
         const data = response.data;
@@ -166,6 +166,9 @@ const UserProfile = () => {
               previousbooked
             </div>
           </div>
+          <button className="gotobookingsite" onClick={() => navigate("/book")}>
+                order now 
+          </button>
         </div>
 
 
@@ -286,6 +289,10 @@ const UserProfile = () => {
 
 
       </div>
+
+      <button className="homebutton" onClick={() => navigate("/home")}>
+                Home
+        </button>
 
     </>
   );

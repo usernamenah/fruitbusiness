@@ -101,12 +101,13 @@
   .logoutbutton{
     position: fixed;
     right: 1rem;
+
     color: white;
     border-radius: 5px;
     border: 2px solid rgb(47, 255, 0);
 
     transform: scale(1);
-    top: 2rem;
+    top: 1px;
     background-color: red;
 }
 .logoutbutton:hover{
@@ -117,6 +118,9 @@
 /* recommendations css */
 
 .recomend {
+    position: fixed;
+    top: 15rem;
+    right: 1rem;
     visibility: visible;
 }
 .rerecomend {
@@ -159,3 +163,32 @@
   transform: scale(1.05);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
 }
+
+
+/* go to profile fromboking site */
+
+.booktoprofilebutton {
+    position: fixed;
+    right: 1rem;
+    top: 8rem;
+  background-color: #ffffff;
+  color: #0077ff;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 119, 255, 0.25);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.booktoprofilebutton:hover {
+  background-color: #f0f8ff;
+  color: #005fcc;
+  box-shadow: 0 12px 24px rgba(0, 119, 255, 0.35);
+  transform: translateY(-3px);
+}
+
