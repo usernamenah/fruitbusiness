@@ -9,6 +9,9 @@ const Booking = () => {
     const [selectedJuices, setSelectedJuices] = useState([]);
     const [selectedColdPressed, setSelectedColdPressed] = useState([]);
     const [activeTab, setActiveTab] = useState(0);
+    const [problem, setProblem] = useState("");
+    const [recommendations, setRecommendations] = useState([]);
+    const [ailoading, setaiLoading] = useState(false);
 
     const fruitbowl = ['Normal', 'Medium', 'Premium'];
     const specialitems = ['sweet', 'putharekulu ( 250gm )', 'putharekulu ( 500gm )'];
@@ -16,6 +19,12 @@ const Booking = () => {
     const specialvillagefood = ['sweet', 'putharekulu ( 250gm )', 'putharekulu ( 500gm )'];
     const fruits = ['Apple', 'Banana', 'Orange', 'Mango', 'Pineapple', 'Grapes', 'Watermelon'];
     const coldfruits = ['ABC Juice', 'Celery Juice', 'Spinach Juice', 'Pineapple & Turmeric Juice'];
+
+
+    const juiceList = coldfruits;
+
+    // console.log(juiceList);
+
 
     // Add handlers
     const handleAdd = (item, setter, currentList) => {
@@ -81,6 +90,23 @@ const Booking = () => {
             }
         } catch (error) {
             console.error("Logout error:", error);
+        }
+    };
+
+    const handleRecommend = async () => {
+        // setLoading(true);
+        try {
+            const res = await fetch("http://localhost:5000/aipath/recommend", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ problem, juiceList }),
+            });
+            const data = await res.json();
+            setRecommendations(data.recommendations || ["sorry no money to buy AI services" , "so no recommendation 😢😭"]);
+        } catch (err) {
+            console.error("Error:", err);
+        } finally {
+            setaiLoading(false);
         }
     };
 
@@ -346,8 +372,35 @@ const Booking = () => {
                         <div className='recomend'>
 
                             <div className="recommendations  top-20 right-5 bg-gray-900 text-white  rounded-lg shadow-lg z-50 w-[250px] h-[250px] sm:w-[300px] sm:h-[300px] md:w-[400px] md:h-[400px]">
-                                <h3 className="text-xl font-bold mb-4">Recommendations</h3>
-                                <p className="text-sm">This is where the recommendations would go.</p>
+                             
+                                <div className="p-4 max-w-md mx-auto bg-white shadow-md rounded text-black">
+                                    <h2 className="text-xl font-semibold mb-2">AI Juice Recommender</h2>
+                                    <input
+                                        type="text"
+                                        placeholder="Describe your issue (e.g. feeling tired)"
+                                        value={problem}
+                                        onChange={(e) => setProblem(e.target.value)}
+                                        className="w-full p-2 border rounded mb-2"
+                                    />
+                                    <button
+                                        onClick={handleRecommend}
+                                        className="bg-blue-600 text-white px-4 py-2 rounded"
+                                        disabled={ailoading}
+                                    >
+                                        {ailoading ? "Thinking..." : "Get Recommendation"}
+                                    </button>
+
+                                    {recommendations.length > 0 && (
+                                        <div className="mt-4">
+                                            <h3 className="font-bold">Results : </h3>
+                                            <ul className="list-disc pl-5 text-xl">
+                                                {recommendations.map((juice, index) => (
+                                                    <li key={index}>{juice}</li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    )}
+                                </div>
                             </div>
                         </div>
 

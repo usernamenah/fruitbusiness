@@ -119,9 +119,10 @@
 
 .recomend {
     position: fixed;
-    top: 15rem;
+    top: 10rem;
     right: 1rem;
     visibility: visible;
+    overflow: scroll;
 }
 .rerecomend {
     visibility: hidden;
