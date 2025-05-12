@@ -438,3 +438,28 @@
   transform: translateY(-4px);
 }
 
+
+
+.settings-button {
+  /* position: absolute; */
+  /* position: inherit; */
+  right: 2rem;
+  /* background: linear-gradient(135deg, #4f46e5, #9333ea); */
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.settings-button:hover {
+  /* background: linear-gradient(135deg, #9333ea, #4f46e5); */
+  transform: scale(1.05);
+}
+
+/* .settings-icon {
+  stroke: white;
+} */

@@ -35,7 +35,7 @@ const UserProfile = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/user/postfeedback", {
+      const response = await fetch("https://fruitbusinessbackend.vercel.app/user/postfeedback", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -67,7 +67,7 @@ const UserProfile = () => {
   const handleLogout = async () => {
     try {
       // Call backend logout endpoint
-      const response = await fetch("http://localhost:5000/logout", {
+      const response = await fetch("https://fruitbusinessbackend.vercel.app/logout", {
         method: "POST",
         credentials: "include" // Necessary for cookie clearing
       });
@@ -90,7 +90,7 @@ const UserProfile = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/user_info", {
+        const response = await axios.get("https://fruitbusinessbackend.vercel.app/api/user_info", {
           withCredentials: true,
         });
         const data = response.data;
@@ -117,7 +117,7 @@ const UserProfile = () => {
   useEffect(() => {
     const fetchUserOrders = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/order/getpreviousorders", {
+        const response = await axios.get("https://fruitbusinessbackend.vercel.app/order/getpreviousorders", {
           withCredentials: true,
         });
         const data = response.data;
@@ -135,6 +135,11 @@ const UserProfile = () => {
   }, []);
 
 
+  const openeditbox = () => {
+
+  }
+
+
 
 
   if (loading) return <div>Loading profile...</div>;
@@ -146,6 +151,28 @@ const UserProfile = () => {
         {/* DIV1 */}
         <div className="div1">
           <div className="profile-card">
+             <button
+              className="settings-button"
+              onClick={openeditbox()}
+
+              title="Settings"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="settings-icon"
+                width="25px"
+                height="25px"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="black"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <circle cx="12" cy="12" r="3" />
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h.09a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.09a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+              </svg>
+            </button>
             <img src={user.avatar} alt="Avatar" className="profile-avatar" />
             <h2 className="profile-name">{user.name}</h2>
             <p className="profile-username">@{user.username}</p>
@@ -160,6 +187,7 @@ const UserProfile = () => {
                 ))}
               </div>
             </div>
+           
             <br></br>
             <br></br>
             <div className="profile-card-previousbooked" role="button" tabIndex={0} onClick={handleOpen}>
@@ -167,7 +195,7 @@ const UserProfile = () => {
             </div>
           </div>
           <button className="gotobookingsite" onClick={() => navigate("/book")}>
-                order now 
+            order now
           </button>
         </div>
 
@@ -175,10 +203,10 @@ const UserProfile = () => {
         {/* DIV2 */}
         <div className="div2">
           <div className="profile-card" >
-           UPDATE IS GONNA COME WHERE YOU CAN POST YOUR EXPERIENCE OF OUR SERVICE AND PRODUCTS
+            UPDATE IS GONNA COME WHERE YOU CAN POST YOUR EXPERIENCE OF OUR SERVICE AND PRODUCTS
 
           </div>
-          
+
 
         </div>
 
@@ -259,40 +287,42 @@ const UserProfile = () => {
 
 
         <div className="order-history-container">
-      <h2>Previous Orders</h2>
+          <h2>Previous Orders</h2>
 
-      {loadingorder ? (
-        <div>Loading orders...</div>
-      ) : orders.length === 0 ? (
-        <div>No orders found.</div>
-      ) : (
-        <div className="order-scroll">
-          {orders.map((order, index) => (
-            <div className="order-card" key={order._id || index}>
-              
-              <p><strong>Date:</strong> {new Date(order.createdAt).toLocaleString()}</p>
+          {loadingorder ? (
+            <div>Loading orders...</div>
+          ) : orders.length === 0 ? (
+            <div>No orders found.</div>
+          ) : (
+            <div className="order-scroll">
+              {orders.map((order, index) => (
+                <div className="order-card" key={order._id || index}>
 
-              {order.bowl.length > 0 && (
-                <p><strong>Bowl:</strong> {order.bowl.join(", ")}</p>
-              )}
-              {order.juices.length > 0 && (
-                <p><strong>Juices:</strong> {order.juices.join(", ")}</p>
-              )}
-              {order.coldPressed.length > 0 && (
-                <p><strong>Cold Pressed:</strong> {order.coldPressed.join(", ")}</p>
-              )}
+                  <p><strong>Date:</strong> {new Date(order.createdAt).toLocaleString()}</p>
+
+                  {order.bowl.length > 0 && (
+                    <p><strong>Bowl:</strong> {order.bowl.join(", ")}</p>
+                  )}
+                  {order.juices.length > 0 && (
+                    <p><strong>Juices:</strong> {order.juices.join(", ")}</p>
+                  )}
+                  {order.coldPressed.length > 0 && (
+                    <p><strong>Cold Pressed:</strong> {order.coldPressed.join(", ")}</p>
+                  )}
+                </div>
+              ))}
             </div>
-          ))}
+          )}
         </div>
-      )}
-    </div>
 
 
       </div>
 
       <button className="homebutton" onClick={() => navigate("/home")}>
-                Home
-        </button>
+        Home
+      </button>
+
+
 
     </>
   );

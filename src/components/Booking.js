@@ -1,17 +1,28 @@
 import React, { useState } from 'react';
 import './Booking.css';
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
+import { marked } from 'marked';
 
 const Booking = () => {
     const navigate = useNavigate();
+
+
 
     const [selectedbowl, setSelectedbowl] = useState([]);
     const [selectedJuices, setSelectedJuices] = useState([]);
     const [selectedColdPressed, setSelectedColdPressed] = useState([]);
     const [activeTab, setActiveTab] = useState(0);
-    const [problem, setProblem] = useState("");
-    const [recommendations, setRecommendations] = useState([]);
+    const [prompt, setPrompt] = useState("");
+    const [response, setResponse] = useState("");
     const [ailoading, setaiLoading] = useState(false);
+   
+    const [showChat, setShowChat] = useState(false);
+    
+    // const [problem, setProblem] = useState("");
+    // const [recommendations, setRecommendations] = useState([]);
+    // const [isVisible, setIsVisible] = useState(false);
+
 
     const fruitbowl = ['Normal', 'Medium', 'Premium'];
     const specialitems = ['sweet', 'putharekulu ( 250gm )', 'putharekulu ( 500gm )'];
@@ -21,9 +32,7 @@ const Booking = () => {
     const coldfruits = ['ABC Juice', 'Celery Juice', 'Spinach Juice', 'Pineapple & Turmeric Juice'];
 
 
-    const juiceList = coldfruits;
 
-    // console.log(juiceList);
 
 
     // Add handlers
@@ -53,7 +62,7 @@ const Booking = () => {
 
 
         try {
-            const response = await fetch("http://localhost:5000/order/place", {
+            const response = await fetch("https://fruitbusinessbackend.vercel.app/order/place", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -78,7 +87,7 @@ const Booking = () => {
     const handleLogout = async () => {
         try {
             // Call backend logout endpoint
-            const response = await fetch("http://localhost:5000/logout", {
+            const response = await fetch("https://fruitbusinessbackend.vercel.app/logout", {
                 method: "POST",
                 credentials: "include" // Necessary for cookie clearing
             });
@@ -93,18 +102,44 @@ const Booking = () => {
         }
     };
 
-    const handleRecommend = async () => {
-        // setLoading(true);
+
+    // i used to implememnt gemini ai but it sucked 
+    // so i implemented another way 
+    // const handleRecommend = async () => {
+    //     // setLoading(true);
+    //     try {
+    //         const res = await fetch("https://fruitbusinessbackend.vercel.app/aipath/recommend", {
+    //             method: "POST",
+    //             headers: { "Content-Type": "application/json" },
+    //             body: JSON.stringify({ problem, juiceList }),
+    //         });
+    //         const data = await res.json();
+    //         setRecommendations(data.recommendations || ["sorry no money to buy AI services" , "so no recommendation 😢😭"]);
+    //     } catch (err) {
+    //         console.error("Error:", err);
+    //     } finally {
+    //         setaiLoading(false);
+    //     }
+    // };
+
+    const fetchGeminiResponse = async (prompt) => {
+        setaiLoading(true);
         try {
-            const res = await fetch("http://localhost:5000/aipath/recommend", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ problem, juiceList }),
+
+            const res = await axios.post("https://fruitbusinessbackend.vercel.app/aipath/recommend", {
+                prompt,
             });
-            const data = await res.json();
-            setRecommendations(data.recommendations || ["sorry no money to buy AI services" , "so no recommendation 😢😭"]);
-        } catch (err) {
-            console.error("Error:", err);
+
+            // Extract actual string
+            const text = res.data.response;
+
+            // Convert markdown to HTML
+            const html = marked(text);
+
+            setResponse(html);
+        } catch (error) {
+            console.error("Error fetching response:", error);
+            setResponse("Error occurred while fetching response.");
         } finally {
             setaiLoading(false);
         }
@@ -369,7 +404,7 @@ const Booking = () => {
                         </div>
                     </div>
                     <div className='col-3'>
-                        <div className='recomend'>
+                        {/* <div className='recomend'>
 
                             <div className="recommendations  top-20 right-5 bg-gray-900 text-white  rounded-lg shadow-lg z-50 w-[250px] h-[250px] sm:w-[300px] sm:h-[300px] md:w-[400px] md:h-[400px]">
                              
@@ -402,14 +437,52 @@ const Booking = () => {
                                     )}
                                 </div>
                             </div>
+                        </div> */}
+
+                        <button className="openaibox" onClick={() => setShowChat(true)}>
+                            Chat with AI
+                        </button>
+
+                        <div className={`changeaiplace ${showChat ? 'show' : ''}`}>
+                            <button className="closebtn" onClick={() => setShowChat(false)}>×</button>
+
+                            <div className="chatbox-wrapper">
+                                <div className="chatbox">
+                                    <div className="input-row">
+                                        <input
+                                            value={prompt}
+                                            onChange={(e) => setPrompt(e.target.value)}
+                                            placeholder="ask anything (juices or your wish)"
+                                        />
+                                        <button onClick={() => fetchGeminiResponse(prompt)}>click</button>
+                                    </div>
+
+                                    {ailoading ? (
+                                        <p className="loading">Loading response...</p>
+                                    ) : (
+                                        response && (
+                                            <div className="response-box">
+                                                <h2>AI Response:</h2>
+                                                <div
+                                                    className="formatted-response"
+                                                    dangerouslySetInnerHTML={{ __html: response }}
+                                                />
+                                            </div>
+                                        )
+                                    )}
+                                </div>
+                                </div>
                         </div>
+
+
+
 
 
                     </div>
 
                 </div>
 
-            </div>
+            </div >
             <button className="homebutton" onClick={() => navigate("/home")}>
                 Home
             </button>

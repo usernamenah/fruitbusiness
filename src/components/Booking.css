@@ -193,3 +193,160 @@
   transform: translateY(-3px);
 }
 
+
+/* ai  box css*/
+/* Container that slides in */
+.changeaiplace {
+  position: fixed;
+  top: 15rem;
+  right: 1rem;
+  width: 90%;
+  max-width: 600px;
+  height: 60vh;
+  max-height: 80vh;
+  background: #121212;
+  box-sizing: border-box;
+  transform: translateX(120%);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  z-index: 999;
+  border-radius: 10px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: white transparent;
+}
+
+.changeaiplace::-webkit-scrollbar {
+  width: 5px;
+}
+
+.changeaiplace::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.changeaiplace::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 25%;
+}
+
+.changeaiplace.show {
+  transform: translateX(0%);
+  opacity: 1;
+}
+
+/* Floating open button */
+.openaibox {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  padding: 10px 16px;
+  background: linear-gradient(to right, #00f0ff, #7a00ff);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: background 0.3s ease;
+}
+
+.openaibox:hover {
+  background: linear-gradient(to right, #7a00ff, #00f0ff);
+}
+
+/* Close Button */
+.closebtn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  color: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* Chatbox layout */
+.chatbox-wrapper {
+  max-height: 100%;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.chatbox {
+  width: 100%;
+  padding: 20px;
+  background: #1e1e1e;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.input-row input {
+  flex: 1 1 auto;
+  min-width: 200px;
+  padding: 12px;
+  background: #2a2a2a;
+  border: 1px solid #444;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 16px;
+}
+
+.input-row input::placeholder {
+  color: #aaa;
+}
+
+.input-row button {
+  padding: 12px 20px;
+  background: linear-gradient(to right, #00f0ff, #7a00ff);
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  white-space: nowrap;
+}
+
+.input-row button:hover {
+  background: linear-gradient(to right, #7a00ff, #00f0ff);
+}
+
+.loading {
+  text-align: center;
+  color: #00f0ff;
+  font-style: italic;
+}
+
+.response-box {
+  background: #2a2a2a;
+  color: white;
+  border-left: 5px solid #7a00ff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(122, 0, 255, 0.3);
+}
+
+.response-box h2 {
+  margin-top: 0;
+  color: #00f0ff;
+}
+
+.response-box pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: Consolas, monospace;
+  color: #00f0ff;
+  font-size: 15px;
+  line-height: 1.6;
+}
